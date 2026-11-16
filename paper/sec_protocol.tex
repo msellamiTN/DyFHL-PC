@@ -12,8 +12,14 @@ Write $\chi_a(e) \in \{0,1\}^{D_a}$ for the indicator of $c(a)$, a wildcard bein
 e \text{ conflicts with } e' &\iff x_{ee'} \textstyle\prod_{a \in A_\ell} \langle \chi_a(e), \chi_a(e')\rangle \neq 0, \label{eq:secconf}\\
 e \text{ is redundant w.r.t.\ } e' &\iff \bigl(|\chi(e)| - \langle \chi(e), \chi(e')\rangle\bigr) + x_{ee'} = 0, \label{eq:secred}
 \end{align}
-because $|\chi(e)| - \langle \chi(e), \chi(e')\rangle = \sum_a |c(a) \setminus c'(a)|$. Every factor is an integer smaller than $|V_\ell| + 2 < p$, so a product in $\Fp$ is zero exactly when one factor is. Algorithm~\ref{alg:pairsecure} applies these tests to the rule $e$ of an event and the foreign rules $J$ that share a key vertex with it.
+because $|\chi(e)| - \langle \chi(e), \chi(e')\rangle = \sum_a |c(a) \setminus c'(a)|$. Every factor is an integer smaller than $|V_\ell| + 2 < p$, so a product in $\Fp$ is zero exactly when one factor is. \Cref{fig:incidence} works the tests on three rows. Algorithm~\ref{alg:pairsecure} applies these tests to the rule $e$ of an event and the foreign rules $J$ that share a key vertex with it.
 
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/fig_incidence.pdf}
+\caption{Incidence rows of three rules over two attributes. Per-attribute inner products give overlap, and $|\chi(e)|-\langle\chi(e),\chi(e')\rangle$ gives containment; the servers evaluate these on secret shares.}\label{fig:incidence}
+\end{figure}
 \begin{algorithm}[t]
 \caption{$\textsc{PairSecure}(e, J)$: same-layer findings between an event's rule and foreign rules}\label{alg:pairsecure}
 \begin{algorithmic}[1]

@@ -70,8 +70,14 @@ A call of tool $t$ by user $u$ that reads $r \in \reads(t)$ is \emph{permitted b
 The composition is a conjunction: every owner on the path must allow its part, which is the rule that the multi-domain literature arrives at~\cite{bonatti2002algebra,gong1996interop}.
 
 \begin{example}\label{ex:model}
-In the running example, $V$'s tool rule $e_1$ has $c(\textit{usr.role}) = \{\textit{clinician}, \textit{analyst}\}$, $c(\textit{tool}) = \{\texttt{summarise}\}$ and the wildcard elsewhere, so $\key(e_1) = \{\texttt{summarise}\}$. $C$'s data rule $e_3$ permits \textit{clinician} on \textit{ehr}. \texttt{summarise} has binding $\svc(c_V)$, where $c_V$ is $V$'s service account. Figure~\ref{fig:example} draws the state as an incidence graph.
+In the running example, $V$'s tool rule $e_1$ has $c(\textit{usr.role}) = \{\textit{clinician}, \textit{analyst}\}$, $c(\textit{tool}) = \{\texttt{summarise}\}$ and the wildcard elsewhere, so $\key(e_1) = \{\texttt{summarise}\}$. $C$'s data rule $e_3$ permits \textit{clinician} on \textit{ehr}. \texttt{summarise} has binding $\svc(c_V)$, where $c_V$ is $V$'s service account. Figure~\ref{fig:hg}a draws the same state in set form, each hyperedge as a region enclosing its vertices, and Figure~\ref{fig:example} as an incidence graph.
 \end{example}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_hg_example.pdf}
+\caption{Policy hypergraph of the running example in set form: each hyperedge encloses its vertices; colour gives the owner ($V$ orange, $C$ blue), dotted outlines usage rules, the dashed green outline the approved description of \texttt{export}. (a) Before the events. (b) After $\epsilon_1$, $\epsilon_2$ and $\epsilon_3$ (red): the highlighted key vertices are the only places where findings can change (Theorem~\ref{thm:locality}).}\label{fig:hg}
+\end{figure}
+
 
 \begin{figure}[t]
 \centering
@@ -135,6 +141,13 @@ $M(e_1) \subseteq M(e_2)$ if and only if $c_1(a) \subseteq c_2(a)$ for every $a 
 \begin{proof}
 Sufficiency is immediate. If $v \in c_1(a_0) \setminus c_2(a_0)$, then, every $c_1(a)$ being non-empty, some $q \in M(e_1)$ has $q(a_0) = v$, and $q \notin M(e_2)$.
 \end{proof}
+
+\Cref{fig:matchsets} shows the two lemmas on match sets: a conflict needs the boxes to meet on every attribute, a redundancy needs one box inside the other, and rules on disjoint key vertices can never form either.
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_matchsets.pdf}
+\caption{Match sets of rules over two attributes. (a) Opposite effects whose boxes intersect on every attribute conflict (\Cref{lem:overlap}). (b) A box inside another with the same effect is redundant (\Cref{lem:subsume}). (c) Disjoint key vertices exclude both, which is why regions are small.}\label{fig:matchsets}
+\end{figure}
 
 \begin{definition}[Blocked grant and privilege amplification]\label{def:cross}
 For a tool $t$ with binding $\beta$ and $r \in \reads(t)$, a user $u \in S$ with $\dec_{\mathsf{tool}}(u, t) = \permit$ forms
