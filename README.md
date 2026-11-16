@@ -15,7 +15,10 @@ python3 tests/test_federation.py
 gunzip -k data/history/*.gz
 python3 -I scripts/aws_history.py data/history results/aws_history.json
 python3 scripts/federation_eval.py results/federation.json
-python3 scripts/make_figures_v2.py 
+python3 scripts/make_figures_v2.py
+```
+Or run everything in Colab: [DyFHL_PA_experiments.ipynb](https://colab.research.google.com/github/msellamiTN/DyFHL-PC/blob/main/DyFHL_PA_experiments.ipynb)
+``` 
 cd paper && pdflatex main && bibtex main && pdflatex main && pdflatex main
 ```
 External data: MAMIP (https://github.com/z0ph/MAMIP), MCP Atlas Census (https://github.com/DSHCorrectover/mcp-atlas-census), Amazon Employee Access (Kaggle).
