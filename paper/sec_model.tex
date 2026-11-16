@@ -1,0 +1,210 @@
+%=====================================================================
+\section{The federated dynamic policy hypergraph}\label{sec:model}
+
+\Cref{tab:notation} lists the notation used in the rest of the paper.
+
+\begin{table}[t]
+\centering\small
+\caption{Notation.}\label{tab:notation}
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+$O$, $o$ & organisations (owners)\\
+$\ell \in \{\mathsf{tool},\mathsf{data},\mathsf{usage}\}$ & layer; $A_\ell$ its attributes, $D_a$ the domain of attribute $a$\\
+$e = (\ell, o, x, c, b)$ & rule: layer, owner, effect, condition, obligations; $M(e)$ its match set\\
+$V$, $h(e)$ & vertices (attribute values and wildcards); hyperedge of rule $e$\\
+$\key(e)$ & key vertices of $e$: the resources (data, usage) or tools (tool layer) it constrains\\
+$\G = (E, d_0, d_1)$, $\G^o$ & joint state (rules, approved and current tool descriptions); fragment of owner $o$\\
+$\dec_\ell$, $\kappa$ & decision of layer $\ell$; combining function\\
+$d(t) = (\reads(t), p_t, \rho_t, \sinks(t), \beta_t)$ & tool description: reads, purpose, retention, sinks, binding\\
+$\ident_\beta(u)$ & effective identity of a call by $u$ under binding $\beta \in \{\obo, \svc(c)\}$\\
+$S$ & population of user attribute vectors (subject classes)\\
+$\F(\G)$, $\Acc$ & findings of a state; findings accepted by their owners\\
+$\epsilon$, $\G \oplus \epsilon$, $\Reg(\epsilon)$ & change event; successor state; region of the event\\
+$\shr{x}$, $\Fp$ & additive secret sharing of $x$ over the field with $p = 2^{31}-1$\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Attributes, rules and hyperedges}
+Each layer $\ell$ has a finite set $A_\ell$ of attributes, qualified by the entity they describe (\textit{usr.role}, \textit{tool.name}, \textit{res.id}, \textit{sink.region}), and each attribute $a$ has a finite domain $D_a$. Hierarchies, ranges and negated values are reduced beforehand to disjoint atoms, so that a condition on an attribute is a set of atoms. A \emph{request} of layer $\ell$ assigns one value to every attribute; $Q_\ell = \prod_{a \in A_\ell} D_a$.
+
+\begin{definition}[Rule]\label{def:rule}
+A rule is a tuple $e = (\ell, o, x, c, b)$ of a layer $\ell$, an owner $o \in O$, an effect $x \in \{\permit, \deny\}$, a condition $c$ mapping every $a \in A_\ell$ to a non-empty set $c(a) \subseteq D_a$, and a finite set $b$ of obligations. The rule matches $q \in Q_\ell$ when $q(a) \in c(a)$ for every $a$; its match set is
+\begin{equation}
+M(e) = \textstyle\prod_{a \in A_\ell} c(a). \label{eq:matchset}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Policy hypergraph]\label{def:hypergraph}
+The vertex set $V$ has one vertex $(a, v)$ for every attribute $a$ and value $v \in D_a$, and one wildcard vertex $(a, \ast)$ per attribute. The hyperedge of a rule is
+\[
+h(e) = \{(a, v) : c(a) \neq D_a,\ v \in c(a)\} \cup \{(a, \ast) : c(a) = D_a\}.
+\]
+A request $q$ is the hyperedge $\{(a, q(a)) : a \in A_\ell\}$, and a tool description (\Cref{def:tool}) is the hyperedge of its tool, read resources, purpose and sinks.
+\end{definition}
+The wildcard gives a normal form: a condition that lists every value and one that leaves the attribute open denote the same match set and the same hyperedge. Without it the syntactic tests below are incomplete.
+
+\begin{definition}[Key vertices]\label{def:key}
+The key attribute of the data and usage layers is the resource, that of the tool layer is the tool. The key vertices $\key(e)$ of a rule are the values of $c$ on its key attribute.
+\end{definition}
+An owner can only govern what it owns, so a rule of owner $o$ constrains its key attribute to resources or tools owned by $o$, or co-owned with others in a shared scope. Key vertices are therefore never wildcards; this is what makes regions small (Section~\ref{sec:admission}).
+
+\begin{definition}[Federated dynamic policy hypergraph]\label{def:fdph}
+A state is $\G = (E, d_0, d_1)$, where $E$ is a finite set of rules and $d_0, d_1$ map every tool to its approved and current description. The \emph{fragment} of owner $o$ is $\G^o$: its rules $E^o = \{e \in E : e \text{ has owner } o\}$ and the descriptions of the tools it hosts. An \emph{event} is one of $\mathsf{ins}(e)$, $\mathsf{del}(e)$, $\mathsf{redesc}(t, d)$ and $\mathsf{approve}(t)$, issued by the owner of $e$ or the host of $t$; $\G \oplus \epsilon$ is the resulting state, with $\mathsf{approve}(t)$ setting $d_0(t) := d_1(t)$.
+\end{definition}
+
+\subsection{Decisions, identities and composition}
+Let $E_\ell(q)$ be the rules of layer $\ell$ that match $q$. A \emph{combining function} $\kappa$ maps the effects of $E_\ell(q)$ to a decision, with $\kappa(\emptyset) = \deny$; deny-overrides, permit-overrides and first-applicable are common choices~\cite{oasis2013xacml}. Then $\dec_\ell(q) = \kappa(E_\ell(q))$. A resource co-owned by several organisations is decided on the union of their rules. All results below that concern decisions hold for every $\kappa$.
+
+Users and service accounts are described by the same identity attributes; $I$ is the set of identity vectors and $S \subseteq I$ a population of user vectors, for instance all combinations of role, department and organisation. A tool-layer request is a pair $(u, t)$, a data-layer request a pair $(i, r)$, a usage-layer request a triple $(r, p, s)$ of a resource, a purpose and a sink.
+
+\begin{definition}[Tool description]\label{def:tool}
+A description
+\[d(t) = (\reads(t), p_t, \rho_t, \sinks(t), \beta_t)\]
+gives the resources the tool reads, its purpose, its retention, its sinks and its binding $\beta_t$, either $\obo$ or $\svc(c)$ for an identity $c \in I$. The effective identity of a call by $u$ is $\ident_{\obo}(u) = u$ and $\ident_{\svc(c)}(u) = c$.
+\end{definition}
+
+\begin{definition}[Composition]\label{def:composition}
+A call of tool $t$ by user $u$ that reads $r \in \reads(t)$ is \emph{permitted by the composition} when $\dec_{\mathsf{tool}}(u, t) = \permit$, $\dec_{\mathsf{data}}(\ident_{\beta_t}(u), r) = \permit$, $\dec_{\mathsf{usage}}(r, p_t, s) = \permit$ for every $s \in \sinks(t)$, and $\rho_t \le \rho^{\max}(r)$, where $\rho^{\max}(r)$ is the retention bound set by the owner of $r$.
+\end{definition}
+The composition is a conjunction: every owner on the path must allow its part, which is the rule that the multi-domain literature arrives at~\cite{bonatti2002algebra,gong1996interop}.
+
+\begin{example}\label{ex:model}
+In the running example, $V$'s tool rule $e_1$ has $c(\textit{usr.role}) = \{\textit{clinician}, \textit{analyst}\}$, $c(\textit{tool}) = \{\texttt{summarise}\}$ and the wildcard elsewhere, so $\key(e_1) = \{\texttt{summarise}\}$. $C$'s data rule $e_3$ permits \textit{clinician} on \textit{ehr}. \texttt{summarise} has binding $\svc(c_V)$, where $c_V$ is $V$'s service account. Figure~\ref{fig:example} draws the state as an incidence graph.
+\end{example}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\scriptsize, >=Stealth, y=0.78cm,
+  v/.style={circle, draw, fill=white, inner sep=1.3pt},
+  he/.style={draw, rounded corners=2pt, inner sep=2pt, align=center, minimum width=2.6cm, minimum height=0.5cm},
+  lab/.style={font=\scriptsize\itshape, text=gray!70!black}]
+\node[lab] at (0,4.2) {usr.role};
+\node[v, label=left:{clinician}] (sA) at (0,3.3) {};
+\node[v, label=left:{analyst}] (sB) at (0,2.2) {};
+\node[v, label=left:{intern}] (sC) at (0,1.1) {};
+\node[v, label=left:{$\svc(c_V)$}] (sD) at (0,0.0) {};
+\node[lab] at (8.4,4.2) {tool / res / sink};
+\node[v, label=right:{\texttt{summarise}}] (tS) at (8.4,3.5) {};
+\node[v, label=right:{\texttt{export}}] (tE) at (8.4,2.5) {};
+\node[v, label=right:{\textit{ehr}}] (rE) at (8.4,1.5) {};
+\node[v, label=right:{\textit{claims}}] (rC) at (8.4,0.5) {};
+\node[v, label=right:{$V$/EU}] (sV) at (8.4,-0.5) {};
+\node[v, label=right:{$R$/US}] (sR) at (8.4,-1.5) {};
+\node[he, fill=orange!18] (e1) at (4.2,3.9) {$e_1$: tool rule of $V$};
+\node[he, fill=orange!18] (e2) at (4.2,3.0) {$e_2$: tool rule of $V$};
+\node[he, fill=blue!12] (e3) at (4.2,2.1) {$e_3$: data rule of $C$};
+\node[he, fill=blue!12] (e4) at (4.2,1.2) {$e_4$: data rule of $C$};
+\node[he, fill=blue!12, dashed, thick] (e5) at (4.2,0.3) {$e_5$: data rule of $C$ ($\epsilon_1$)};
+\node[he, fill=blue!5] (e6) at (4.2,-0.6) {$e_6$: usage rule of $C$};
+\node[he, fill=orange!8] (dE) at (4.2,-1.5) {$d_1(\texttt{export})$ ($\epsilon_2$)};
+\draw (e1.west) -- (sA); \draw (e1.west) -- (sB); \draw (e1.east) -- (tS);
+\draw (e2.west) -- (sB); \draw (e2.east) -- (tE);
+\draw[densely dotted, thick, orange!70!black] (e2.west) -- node[pos=0.3, fill=white, inner sep=0.5pt, font=\tiny] {$\epsilon_3$} (sC);
+\draw (e3.west) -- (sA); \draw (e3.east) -- (rE);
+\draw (e4.west) -- (sB); \draw (e4.east) -- (rC);
+\draw[dashed] (e5.west) -- (sD); \draw[dashed] (e5.east) -- (rE);
+\draw (e6.east) -- (rC); \draw (e6.east) -- (sV);
+\draw (dE.east) -- (tE); \draw (dE.east) -- (rC); \draw (dE.east) -- (sV); \draw[dashed] (dE.east) -- (sR);
+\end{tikzpicture}
+\caption{Running example as the incidence graph of the policy hypergraph (rectangles are hyperedges, circles are vertices; attributes left open are not drawn). Orange hyperedges belong to $V$, blue ones to $C$. Dashed and dotted elements are added by the events $\epsilon_1$, $\epsilon_2$ and $\epsilon_3$ of Section~\ref{sec:example}.}\label{fig:example}
+\end{figure}
+
+\subsection{Delegation chains}
+A chain $\pi = (p_0, \dots, p_k)$ is a sequence of principals in which $p_0$ is the initiating user and $p_j$ acts at the request of $p_{j-1}$. Write $P(p)$ for the resources that $p$ is permitted to access in the data layer.
+
+%---------------------------------------------------------------------
+\subsection{Anomalies of the composed policy}\label{sec:anomalies}
+Bertino et al.\ assess policies by consistency, minimality, relevance and completeness~\cite{bertino2018quality}. The first two anomalies below are consistency and minimality across owners inside one layer; the next two are completeness and consistency across layers; the last two arise from tools and have no counterpart in a single policy set.
+
+\begin{definition}[Conflict and redundancy]\label{def:pair}
+Rules $e_1, e_2$ of one layer and of different owners \emph{conflict} when $M(e_1) \cap M(e_2) \neq \emptyset$ and their effects differ or their obligations cannot both be met. Rule $e_1$ is \emph{redundant} with respect to $e_2$ when they have the same effect and obligations and $M(e_1) \subseteq M(e_2)$. $\Conf(\G)$ and $\Red(\G)$ are the sets of such pairs.
+\end{definition}
+Pairs of the same owner are analysed by that owner with existing tools; we include them in admission without cryptography (Section~\ref{sec:admit}).
+
+\begin{lemma}[Overlap]\label{lem:overlap}
+$M(e_1) \cap M(e_2) \neq \emptyset$ if and only if $c_1(a) \cap c_2(a) \neq \emptyset$ for every $a \in A_\ell$.
+\end{lemma}
+\begin{proof}
+By \eqref{eq:matchset}, $M(e_1) \cap M(e_2) = \prod_a (c_1(a) \cap c_2(a))$, which is non-empty exactly when every factor is.
+\end{proof}
+
+\begin{lemma}[Subsumption]\label{lem:subsume}
+$M(e_1) \subseteq M(e_2)$ if and only if $c_1(a) \subseteq c_2(a)$ for every $a \in A_\ell$.
+\end{lemma}
+\begin{proof}
+Sufficiency is immediate. If $v \in c_1(a_0) \setminus c_2(a_0)$, then, every $c_1(a)$ being non-empty, some $q \in M(e_1)$ has $q(a_0) = v$, and $q \notin M(e_2)$.
+\end{proof}
+
+\begin{definition}[Blocked grant and privilege amplification]\label{def:cross}
+For a tool $t$ with binding $\beta$ and $r \in \reads(t)$, a user $u \in S$ with $\dec_{\mathsf{tool}}(u, t) = \permit$ forms
+\begin{itemize}
+\item a \emph{blocked grant} $(u, t, r) \in \Gap(\G)$ when $\dec_{\mathsf{data}}(\ident_\beta(u), r) = \deny$;
+\item a \emph{privilege amplification} $(u, t, r) \in \Amp(\G)$ when $\dec_{\mathsf{data}}(\ident_\beta(u), r) = \permit$ and $\dec_{\mathsf{data}}(u, r) = \deny$.
+\end{itemize}
+\end{definition}
+A blocked grant is a completeness failure seen across owners: one owner offers a call that another owner's policy makes fail. An amplification is the confused deputy~\cite{hardy1988deputy}: the tool obtains for the user what the user's own identity is refused.
+
+\begin{theorem}[Gap--amplification duality]\label{thm:duality}
+Let $t$ be a tool, $c$ a service account and $R_c = \{r \in \reads(t) : \dec_{\mathsf{data}}(c, r) = \permit\}$. For every population and every combining function, (i) no amplification exists under $\obo$; (ii) under $\svc(c)$ no blocked grant involves a resource of $R_c$; (iii) on the resources of $R_c$, the amplifications under $\svc(c)$ are exactly the blocked grants under $\obo$.
+\end{theorem}
+\begin{proof}
+Under $\obo$ the effective identity is $u$, so an amplification would need $\dec_{\mathsf{data}}(u, r)$ to be both $\permit$ and $\deny$, which proves (i); the blocked grants are then the $(u, t, r)$ with $\dec_{\mathsf{data}}(u, r) = \deny$. Under $\svc(c)$ the effective identity is $c$. For $r \in R_c$, $\dec_{\mathsf{data}}(c, r) = \permit$, so no blocked grant involves $r$, which proves (ii), and the amplification condition reduces to $\dec_{\mathsf{data}}(u, r) = \deny$, the blocked-grant condition under $\obo$; this proves (iii). Only decisions were used, so the result holds for every $\kappa$.
+\end{proof}
+\begin{corollary}\label{cor:invariant}
+Changing the binding of a tool between $\obo$ and $\svc(c)$ leaves the number of blocked grants plus amplifications on $R_c$ unchanged; it can be reduced only by changing a rule.
+\end{corollary}
+In the running example, event $\epsilon_1$ moves $\texttt{summarise}$'s analysts from blocked grants to amplifications. Before $\epsilon_1$ the problem is visible to users as failures; after it, it is visible to nobody.
+
+\begin{definition}[Usage violation and drift]\label{def:usage}
+For a description $d$ of tool $t$,
+\begin{align*}
+\Viol(d) ={}& \{(t, r, s) : r \in \reads(t),\ s \in \sinks(t),\ \dec_{\mathsf{usage}}(r, p_t, s) = \deny\}\\
+&\cup \{(t, r, \rho_t) : r \in \reads(t),\ \rho_t > \rho^{\max}(r)\},
+\end{align*}
+and $\Viol(\G) = \bigcup_t \Viol(d_1(t))$. The \emph{drift} of $t$ is $\Drift_t(\G) = \Viol(d_1(t)) \setminus \Viol(d_0(t))$: the violations that the current description adds to the approved one.
+\end{definition}
+A fingerprint of the description shows that a tool changed~\cite{bharti2026drift}; drift states what the change makes possible, against the policies of the owners whose data the tool reads.
+
+\begin{theorem}[Attenuation]\label{thm:chain}
+Let the intended authority of a chain be $I(\pi) = \bigcap_{j=0}^{k} P(p_j)$. Then $I(p_0, \dots, p_{j+1}) \subseteq I(p_0, \dots, p_j) \subseteq P(p_0)$, and for the two-element chain $(u, c)$ in which the service account exercises its rights, $P(c) \setminus I(u, c) = P(c) \setminus P(u)$, the amplification of \Cref{def:cross} on the resources a tool reads.
+\end{theorem}
+\begin{proof}
+Intersecting with a further set cannot enlarge it, and $I(p_0) = P(p_0)$. Moreover $P(c) \setminus (P(u) \cap P(c)) = P(c) \setminus P(u)$.
+\end{proof}
+Longer chains are therefore checked with the same cross-layer test, applied to the last identity that acts and the first principal on whose behalf it acts.
+
+\begin{theorem}[Universal coverage is coNP-complete]\label{thm:hard}
+Deciding whether the permit rules of one layer match every request is coNP-complete, already for two-valued domains.
+\end{theorem}
+\begin{proof}
+An unmatched request is a polynomial certificate for a negative answer. For hardness, reduce DNF tautology~\cite{garey1979intractability}: one attribute $\{\mathit{true}, \mathit{false}\}$ per variable and one permit rule per term, with $\{\mathit{true}\}$ on positive literals, $\{\mathit{false}\}$ on negative ones and the full domain elsewhere. A request is matched by a term's rule exactly when the assignment satisfies the term, so all requests are matched if and only if the formula is a tautology.
+\end{proof}
+This is why \name{} evaluates blocked grants on a given population $S$, at one decision per element, instead of proving coverage of all requests.
+
+\begin{definition}[Findings and governed state]\label{def:governed}
+The findings of a state are $\F(\G) = \Conf \cup \Red \cup \Gap \cup \Amp \cup \Viol \cup \bigcup_t \Drift_t$. Let $\Acc$ be the set of findings that their owners have accepted, for instance conflicts intended under deny-overrides. A state is \emph{governed} when $\F(\G) \subseteq \Acc$.
+\end{definition}
+Governance in this sense is relative to declared descriptions and to the population $S$, and it assumes mediation (\Cref{as:mediation}). It does not claim that every possible request is covered, which Theorem~\ref{thm:hard} makes intractable, nor that tools behave as described, which is a matter for runtime monitoring.
+
+\begin{figure}[t]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\footnotesize, >=Stealth,
+  p/.style={draw, rounded corners=2pt, minimum height=0.8cm, align=center, inner sep=3pt},
+  d/.style={draw, diamond, aspect=2.2, inner sep=0.8pt, align=center, font=\scriptsize, fill=gray!8}]
+\node[p, fill=blue!8] (u) at (0,0) {user $u$\\ analyst, $C$};
+\node[p, fill=orange!12] (a) at (2.6,0) {agent\\ platform $V$};
+\node[p, fill=orange!12] (t) at (5.2,0) {tool \texttt{summarise}\\ host $V$};
+\node[p, fill=orange!6] (i) at (8.2,0) {identity\\ $\ident_\beta(u)$};
+\node[p, fill=blue!8] (r) at (11.0,0) {resource \textit{ehr}\\ owner $C$};
+\draw[->] (u) -- (a); \draw[->] (a) -- (t); \draw[->] (t) -- (i); \draw[->] (i) -- (r);
+\node[d] (dt) at (3.9,-1.45) {$\dec_{\mathsf{tool}}(u,t)$\\ owner $V$};
+\node[d] (dd) at (9.6,-1.45) {$\dec_{\mathsf{data}}(\ident_\beta(u), r)$\\ owner $C$};
+\node[d] (du) at (9.6,1.5) {$\dec_{\mathsf{data}}(u, r)$\\ owner $C$};
+\draw[dashed] (dt) -- (3.9,0); \draw[dashed] (dd) -- (9.6,0); \draw[dashed] (du) -- (9.6,0.4);
+\node[align=left, font=\scriptsize, anchor=west] at (-0.3,-2.75) {$\obo$: $\ident(u) = u$;\quad blocked grant iff $\dec_{\mathsf{tool}}{=}\permit \wedge \dec_{\mathsf{data}}(u,r){=}\deny$;\quad no amplification.\\
+$\svc(c_V)$: $\ident(u) = c_V$;\quad amplification iff $\dec_{\mathsf{tool}}{=}\permit \wedge \dec_{\mathsf{data}}(c_V,r){=}\permit \wedge \dec_{\mathsf{data}}(u,r){=}\deny$.};
+\end{tikzpicture}}
+\caption{Decisions crossed by one agent call and the owners who hold them. Blocked grants and amplifications are conjunctions of decisions taken by different owners; Theorem~\ref{thm:duality} shows that switching the binding moves findings from one set to the other.}\label{fig:chain}
+\end{figure}

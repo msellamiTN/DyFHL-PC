@@ -1,0 +1,1549 @@
+{
+ "vocabulary": 12515,
+ "agents": {
+  "AIDevOpsAgentAccessPolicy": {
+   "statements": 4,
+   "conditional_allow": 1,
+   "held": 3890,
+   "held_mutating": 16,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 2441,
+     "mutating": 16,
+     "examples": [
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listfindings",
+      "acm-pca:getcertificate",
+      "acm-pca:getcertificateauthoritycsr"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 189,
+     "mutating": 9,
+     "examples": [
+      "amplify:listresourcesforwebacl",
+      "apprunner:describeoperation",
+      "auditmanager:listassessmentcontrolinsightsbycontroldomain",
+      "auditmanager:listassessmentframeworksharerequests",
+      "auditmanager:listcontroldomaininsights"
+     ]
+    },
+    "SupportUser": {
+     "n": 2702,
+     "mutating": 15,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "Billing": {
+     "n": 3871,
+     "mutating": 15,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 1830,
+     "mutating": 16,
+     "examples": [
+      "acm-pca:getcertificate",
+      "acm-pca:getcertificateauthoritycsr",
+      "acm:getcertificate",
+      "aidevops:getasset",
+      "aidevops:getassetcontent"
+     ]
+    },
+    "DataScientist": {
+     "n": 3170,
+     "mutating": 11,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 3639,
+     "mutating": 15,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 3691,
+     "mutating": 16,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 3182,
+     "mutating": 7,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 46,
+     "mutating": 0,
+     "examples": [
+      "iam:getgroup",
+      "iam:getgrouppolicy",
+      "iam:getinstanceprofile",
+      "iam:getloginprofile",
+      "iam:getopenidconnectprovider"
+     ]
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AIDevOpsAgentActionsPolicy": {
+   "statements": 2,
+   "conditional_allow": 0,
+   "held": 12129,
+   "held_mutating": 4411,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 10136,
+     "mutating": 4405,
+     "examples": [
+      "a2c:getcontainerizationjobdetails",
+      "a2c:getdeploymentjobdetails",
+      "a2c:startcontainerizationjob",
+      "a2c:startdeploymentjob",
+      "a4b:associatecontactwithaddressbook"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 5839,
+     "mutating": 4355,
+     "examples": [
+      "a2c:getcontainerizationjobdetails",
+      "a2c:getdeploymentjobdetails",
+      "a2c:startcontainerizationjob",
+      "a2c:startdeploymentjob",
+      "a4b:associatecontactwithaddressbook"
+     ]
+    },
+    "SupportUser": {
+     "n": 10573,
+     "mutating": 4388,
+     "examples": [
+      "a2c:getcontainerizationjobdetails",
+      "a2c:getdeploymentjobdetails",
+      "a2c:startcontainerizationjob",
+      "a2c:startdeploymentjob",
+      "a4b:associatecontactwithaddressbook"
+     ]
+    },
+    "Billing": {
+     "n": 11968,
+     "mutating": 4336,
+     "examples": [
+      "a2c:getcontainerizationjobdetails",
+      "a2c:getdeploymentjobdetails",
+      "a2c:startcontainerizationjob",
+      "a2c:startdeploymentjob",
+      "a4b:associatecontactwithaddressbook"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 9212,
+     "mutating": 4402,
+     "examples": [
+      "a2c:getcontainerizationjobdetails",
+      "a2c:getdeploymentjobdetails",
+      "a2c:startcontainerizationjob",
+      "a2c:startdeploymentjob",
+      "a4b:associatecontactwithaddressbook"
+     ]
+    },
+    "DataScientist": {
+     "n": 10734,
+     "mutating": 3869,
+     "examples": [
+      "a2c:getcontainerizationjobdetails",
+      "a2c:getdeploymentjobdetails",
+      "a2c:startcontainerizationjob",
+      "a2c:startdeploymentjob",
+      "a4b:associatecontactwithaddressbook"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 11636,
+     "mutating": 4244,
+     "examples": [
+      "a2c:getcontainerizationjobdetails",
+      "a2c:getdeploymentjobdetails",
+      "a2c:startcontainerizationjob",
+      "a2c:startdeploymentjob",
+      "a4b:associatecontactwithaddressbook"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 11674,
+     "mutating": 4208,
+     "examples": [
+      "a2c:getcontainerizationjobdetails",
+      "a2c:getdeploymentjobdetails",
+      "a2c:startcontainerizationjob",
+      "a2c:startdeploymentjob",
+      "a4b:associatecontactwithaddressbook"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 10691,
+     "mutating": 3857,
+     "examples": [
+      "a2c:getcontainerizationjobdetails",
+      "a2c:getdeploymentjobdetails",
+      "a2c:startcontainerizationjob",
+      "a2c:startdeploymentjob",
+      "a4b:associatecontactwithaddressbook"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSSecurityAgentServiceRolePolicy": {
+   "statements": 6,
+   "conditional_allow": 5,
+   "held": 3,
+   "held_mutating": 0,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "ReadOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SupportUser": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "Billing": {
+     "n": 3,
+     "mutating": 0,
+     "examples": [
+      "ec2:describesecuritygroups",
+      "ec2:describesubnets",
+      "ec2:describevpcs"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "DataScientist": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "DatabaseAdministrator": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "NetworkAdministrator": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SystemAdministrator": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "PowerUserAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSSecurityAgentContinuousPentestPolicy": {
+   "statements": 1,
+   "conditional_allow": 0,
+   "held": 6,
+   "held_mutating": 2,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 5,
+     "mutating": 2,
+     "examples": [
+      "securityagent:batchgetfindings",
+      "securityagent:batchgetpentestjobs",
+      "securityagent:listfindings",
+      "securityagent:startpentestjob",
+      "securityagent:stoppentestjob"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 2,
+     "mutating": 2,
+     "examples": [
+      "securityagent:startpentestjob",
+      "securityagent:stoppentestjob"
+     ]
+    },
+    "SupportUser": {
+     "n": 6,
+     "mutating": 2,
+     "examples": [
+      "securityagent:batchgetfindings",
+      "securityagent:batchgetpentestjobs",
+      "securityagent:listfindings",
+      "securityagent:listintegratedresources",
+      "securityagent:startpentestjob"
+     ]
+    },
+    "Billing": {
+     "n": 6,
+     "mutating": 2,
+     "examples": [
+      "securityagent:batchgetfindings",
+      "securityagent:batchgetpentestjobs",
+      "securityagent:listfindings",
+      "securityagent:listintegratedresources",
+      "securityagent:startpentestjob"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 5,
+     "mutating": 2,
+     "examples": [
+      "securityagent:batchgetfindings",
+      "securityagent:batchgetpentestjobs",
+      "securityagent:listfindings",
+      "securityagent:startpentestjob",
+      "securityagent:stoppentestjob"
+     ]
+    },
+    "DataScientist": {
+     "n": 6,
+     "mutating": 2,
+     "examples": [
+      "securityagent:batchgetfindings",
+      "securityagent:batchgetpentestjobs",
+      "securityagent:listfindings",
+      "securityagent:listintegratedresources",
+      "securityagent:startpentestjob"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 6,
+     "mutating": 2,
+     "examples": [
+      "securityagent:batchgetfindings",
+      "securityagent:batchgetpentestjobs",
+      "securityagent:listfindings",
+      "securityagent:listintegratedresources",
+      "securityagent:startpentestjob"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 6,
+     "mutating": 2,
+     "examples": [
+      "securityagent:batchgetfindings",
+      "securityagent:batchgetpentestjobs",
+      "securityagent:listfindings",
+      "securityagent:listintegratedresources",
+      "securityagent:startpentestjob"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 6,
+     "mutating": 2,
+     "examples": [
+      "securityagent:batchgetfindings",
+      "securityagent:batchgetpentestjobs",
+      "securityagent:listfindings",
+      "securityagent:listintegratedresources",
+      "securityagent:startpentestjob"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSFinOpsAgentServiceRolePolicy": {
+   "statements": 31,
+   "conditional_allow": 3,
+   "held": 216,
+   "held_mutating": 2,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 155,
+     "mutating": 2,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 39,
+     "mutating": 2,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "SupportUser": {
+     "n": 174,
+     "mutating": 2,
+     "examples": [
+      "account:getregionoptstatus",
+      "account:listregions",
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration"
+     ]
+    },
+    "Billing": {
+     "n": 163,
+     "mutating": 2,
+     "examples": [
+      "account:getregionoptstatus",
+      "account:listregions",
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 148,
+     "mutating": 2,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "DataScientist": {
+     "n": 180,
+     "mutating": 2,
+     "examples": [
+      "account:getregionoptstatus",
+      "account:listregions",
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 193,
+     "mutating": 2,
+     "examples": [
+      "account:getregionoptstatus",
+      "account:listregions",
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 208,
+     "mutating": 2,
+     "examples": [
+      "account:getregionoptstatus",
+      "account:listregions",
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 187,
+     "mutating": 2,
+     "examples": [
+      "account:getregionoptstatus",
+      "account:listregions",
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 9,
+     "mutating": 0,
+     "examples": [
+      "account:getregionoptstatus",
+      "organizations:describeaccount",
+      "organizations:describeorganizationalunit",
+      "organizations:listaccounts",
+      "organizations:listawsserviceaccessfororganization"
+     ]
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "FinOpsAgentAgentPolicy": {
+   "statements": 3,
+   "conditional_allow": 2,
+   "held": 132,
+   "held_mutating": 3,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 110,
+     "mutating": 3,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 28,
+     "mutating": 2,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "SupportUser": {
+     "n": 115,
+     "mutating": 3,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "Billing": {
+     "n": 108,
+     "mutating": 3,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 111,
+     "mutating": 3,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "DataScientist": {
+     "n": 120,
+     "mutating": 3,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 125,
+     "mutating": 3,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 128,
+     "mutating": 3,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 115,
+     "mutating": 2,
+     "examples": [
+      "aco-automation:getautomationevent",
+      "aco-automation:getautomationrule",
+      "aco-automation:getenrollmentconfiguration",
+      "aco-automation:listaccounts",
+      "aco-automation:listautomationevents"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 2,
+     "mutating": 0,
+     "examples": [
+      "organizations:describeaccount",
+      "organizations:listaccounts"
+     ]
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSTransformLandingZoneAgentPolicy": {
+   "statements": 18,
+   "conditional_allow": 17,
+   "held": 10,
+   "held_mutating": 0,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 8,
+     "mutating": 0,
+     "examples": [
+      "controltower:getbaselineoperation",
+      "controltower:getcontroloperation",
+      "controltower:listbaselines",
+      "controltower:listenabledbaselines",
+      "controltower:listenabledcontrols"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 6,
+     "mutating": 0,
+     "examples": [
+      "controltower:getbaselineoperation",
+      "controltower:getcontroloperation",
+      "controltower:listbaselines",
+      "controltower:listenabledbaselines",
+      "controltower:listenabledcontrols"
+     ]
+    },
+    "SupportUser": {
+     "n": 10,
+     "mutating": 0,
+     "examples": [
+      "controltower:getbaselineoperation",
+      "controltower:getcontroloperation",
+      "controltower:listbaselines",
+      "controltower:listenabledbaselines",
+      "controltower:listenabledcontrols"
+     ]
+    },
+    "Billing": {
+     "n": 10,
+     "mutating": 0,
+     "examples": [
+      "controltower:getbaselineoperation",
+      "controltower:getcontroloperation",
+      "controltower:listbaselines",
+      "controltower:listenabledbaselines",
+      "controltower:listenabledcontrols"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 6,
+     "mutating": 0,
+     "examples": [
+      "controltower:getbaselineoperation",
+      "controltower:getcontroloperation",
+      "controltower:listbaselines",
+      "controltower:listenabledbaselines",
+      "controltower:listenabledcontrols"
+     ]
+    },
+    "DataScientist": {
+     "n": 10,
+     "mutating": 0,
+     "examples": [
+      "controltower:getbaselineoperation",
+      "controltower:getcontroloperation",
+      "controltower:listbaselines",
+      "controltower:listenabledbaselines",
+      "controltower:listenabledcontrols"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 10,
+     "mutating": 0,
+     "examples": [
+      "controltower:getbaselineoperation",
+      "controltower:getcontroloperation",
+      "controltower:listbaselines",
+      "controltower:listenabledbaselines",
+      "controltower:listenabledcontrols"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 10,
+     "mutating": 0,
+     "examples": [
+      "controltower:getbaselineoperation",
+      "controltower:getcontroloperation",
+      "controltower:listbaselines",
+      "controltower:listenabledbaselines",
+      "controltower:listenabledcontrols"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 10,
+     "mutating": 0,
+     "examples": [
+      "controltower:getbaselineoperation",
+      "controltower:getcontroloperation",
+      "controltower:listbaselines",
+      "controltower:listenabledbaselines",
+      "controltower:listenabledcontrols"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 3,
+     "mutating": 0,
+     "examples": [
+      "organizations:describecreateaccountstatus",
+      "organizations:listpolicies",
+      "organizations:listroots"
+     ]
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSTransformNetworkMigrationAgentPolicy": {
+   "statements": 67,
+   "conditional_allow": 66,
+   "held": 1,
+   "held_mutating": 0,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "ReadOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SupportUser": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "Billing": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "DataScientist": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSTransformServerMigrationAgentPolicy": {
+   "statements": 61,
+   "conditional_allow": 59,
+   "held": 2,
+   "held_mutating": 0,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "s3:getobject"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SupportUser": {
+     "n": 2,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts",
+      "s3:getobject"
+     ]
+    },
+    "Billing": {
+     "n": 2,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts",
+      "s3:getobject"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "s3:getobject"
+     ]
+    },
+    "DataScientist": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 2,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts",
+      "s3:getobject"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "organizations:listaccounts"
+     ]
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSTransformSecurityAgentExecutorAccess": {
+   "statements": 8,
+   "conditional_allow": 8,
+   "held": 0,
+   "held_mutating": 0,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "ReadOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SupportUser": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "Billing": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SecurityAudit": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "DataScientist": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "DatabaseAdministrator": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "NetworkAdministrator": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SystemAdministrator": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "PowerUserAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSWellArchitectedAgentOrganizationsServiceRolePolicy": {
+   "statements": 1,
+   "conditional_allow": 0,
+   "held": 11,
+   "held_mutating": 0,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 3,
+     "mutating": 0,
+     "examples": [
+      "organizations:describeaccount",
+      "organizations:describeorganization",
+      "organizations:describeorganizationalunit"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SupportUser": {
+     "n": 11,
+     "mutating": 0,
+     "examples": [
+      "organizations:describeaccount",
+      "organizations:describeorganization",
+      "organizations:describeorganizationalunit",
+      "organizations:listaccounts",
+      "organizations:listaccountsforparent"
+     ]
+    },
+    "Billing": {
+     "n": 11,
+     "mutating": 0,
+     "examples": [
+      "organizations:describeaccount",
+      "organizations:describeorganization",
+      "organizations:describeorganizationalunit",
+      "organizations:listaccounts",
+      "organizations:listaccountsforparent"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "DataScientist": {
+     "n": 11,
+     "mutating": 0,
+     "examples": [
+      "organizations:describeaccount",
+      "organizations:describeorganization",
+      "organizations:describeorganizationalunit",
+      "organizations:listaccounts",
+      "organizations:listaccountsforparent"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 11,
+     "mutating": 0,
+     "examples": [
+      "organizations:describeaccount",
+      "organizations:describeorganization",
+      "organizations:describeorganizationalunit",
+      "organizations:listaccounts",
+      "organizations:listaccountsforparent"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 11,
+     "mutating": 0,
+     "examples": [
+      "organizations:describeaccount",
+      "organizations:describeorganization",
+      "organizations:describeorganizationalunit",
+      "organizations:listaccounts",
+      "organizations:listaccountsforparent"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 11,
+     "mutating": 0,
+     "examples": [
+      "organizations:describeaccount",
+      "organizations:describeorganization",
+      "organizations:describeorganizationalunit",
+      "organizations:listaccounts",
+      "organizations:listaccountsforparent"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 10,
+     "mutating": 0,
+     "examples": [
+      "organizations:describeaccount",
+      "organizations:describeorganizationalunit",
+      "organizations:listaccounts",
+      "organizations:listaccountsforparent",
+      "organizations:listawsserviceaccessfororganization"
+     ]
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSWellArchitectedAgentResourceScanningServiceRolePolicy": {
+   "statements": 3,
+   "conditional_allow": 3,
+   "held": 0,
+   "held_mutating": 0,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "ReadOnlyAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SupportUser": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "Billing": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SecurityAudit": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "DataScientist": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "DatabaseAdministrator": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "NetworkAdministrator": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "SystemAdministrator": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "PowerUserAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "WellArchitectedAgentResourceScanning": {
+   "statements": 2,
+   "conditional_allow": 0,
+   "held": 4961,
+   "held_mutating": 1,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 3434,
+     "mutating": 1,
+     "examples": [
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listfindings",
+      "acm-pca:getcertificate",
+      "acm-pca:getcertificateauthoritycsr"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 632,
+     "mutating": 0,
+     "examples": [
+      "aco-automation:getautomationrule",
+      "aco-automation:listautomationrules",
+      "aidevops:getaccesstoken",
+      "aidevops:getcatalogcapability",
+      "aidevops:getchat"
+     ]
+    },
+    "SupportUser": {
+     "n": 3914,
+     "mutating": 1,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "Billing": {
+     "n": 4931,
+     "mutating": 1,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 2667,
+     "mutating": 1,
+     "examples": [
+      "acm-pca:getcertificate",
+      "acm-pca:getcertificateauthoritycsr",
+      "aco-automation:getautomationrule",
+      "aco-automation:listautomationrules",
+      "aidevops:getaccesstoken"
+     ]
+    },
+    "DataScientist": {
+     "n": 4444,
+     "mutating": 1,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 4779,
+     "mutating": 1,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 4752,
+     "mutating": 1,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 4310,
+     "mutating": 1,
+     "examples": [
+      "access-analyzer:getanalyzer",
+      "access-analyzer:listaccesspreviewfindings",
+      "access-analyzer:listaccesspreviews",
+      "access-analyzer:listanalyzedresources",
+      "access-analyzer:listanalyzers"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 82,
+     "mutating": 0,
+     "examples": [
+      "iam:getaccesskeylastused",
+      "iam:getaccountauthorizationdetails",
+      "iam:getaccountpasswordpolicy",
+      "iam:getaccountsummary",
+      "iam:getcontextkeysforcustompolicy"
+     ]
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "AWSMarketplaceAgenticCommerceServiceRolePolicy": {
+   "statements": 5,
+   "conditional_allow": 3,
+   "held": 7,
+   "held_mutating": 1,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 7,
+     "mutating": 1,
+     "examples": [
+      "aws-marketplace:getlisting",
+      "aws-marketplace:getoffer",
+      "aws-marketplace:getofferterms",
+      "aws-marketplace:getproduct",
+      "aws-marketplace:listfulfillmentoptions"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 7,
+     "mutating": 1,
+     "examples": [
+      "aws-marketplace:getlisting",
+      "aws-marketplace:getoffer",
+      "aws-marketplace:getofferterms",
+      "aws-marketplace:getproduct",
+      "aws-marketplace:listfulfillmentoptions"
+     ]
+    },
+    "SupportUser": {
+     "n": 7,
+     "mutating": 1,
+     "examples": [
+      "aws-marketplace:getlisting",
+      "aws-marketplace:getoffer",
+      "aws-marketplace:getofferterms",
+      "aws-marketplace:getproduct",
+      "aws-marketplace:listfulfillmentoptions"
+     ]
+    },
+    "Billing": {
+     "n": 7,
+     "mutating": 1,
+     "examples": [
+      "aws-marketplace:getlisting",
+      "aws-marketplace:getoffer",
+      "aws-marketplace:getofferterms",
+      "aws-marketplace:getproduct",
+      "aws-marketplace:listfulfillmentoptions"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 7,
+     "mutating": 1,
+     "examples": [
+      "aws-marketplace:getlisting",
+      "aws-marketplace:getoffer",
+      "aws-marketplace:getofferterms",
+      "aws-marketplace:getproduct",
+      "aws-marketplace:listfulfillmentoptions"
+     ]
+    },
+    "DataScientist": {
+     "n": 7,
+     "mutating": 1,
+     "examples": [
+      "aws-marketplace:getlisting",
+      "aws-marketplace:getoffer",
+      "aws-marketplace:getofferterms",
+      "aws-marketplace:getproduct",
+      "aws-marketplace:listfulfillmentoptions"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 7,
+     "mutating": 1,
+     "examples": [
+      "aws-marketplace:getlisting",
+      "aws-marketplace:getoffer",
+      "aws-marketplace:getofferterms",
+      "aws-marketplace:getproduct",
+      "aws-marketplace:listfulfillmentoptions"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 7,
+     "mutating": 1,
+     "examples": [
+      "aws-marketplace:getlisting",
+      "aws-marketplace:getoffer",
+      "aws-marketplace:getofferterms",
+      "aws-marketplace:getproduct",
+      "aws-marketplace:listfulfillmentoptions"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 7,
+     "mutating": 1,
+     "examples": [
+      "aws-marketplace:getlisting",
+      "aws-marketplace:getoffer",
+      "aws-marketplace:getofferterms",
+      "aws-marketplace:getproduct",
+      "aws-marketplace:listfulfillmentoptions"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  },
+  "SageMakerStudioBedrockAgentServiceRolePolicy": {
+   "statements": 9,
+   "conditional_allow": 8,
+   "held": 1,
+   "held_mutating": 0,
+   "amp": {
+    "ViewOnlyAccess": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "bedrock:retrieveandgenerate"
+     ]
+    },
+    "ReadOnlyAccess": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "bedrock:retrieveandgenerate"
+     ]
+    },
+    "SupportUser": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "bedrock:retrieveandgenerate"
+     ]
+    },
+    "Billing": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "bedrock:retrieveandgenerate"
+     ]
+    },
+    "SecurityAudit": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "bedrock:retrieveandgenerate"
+     ]
+    },
+    "DataScientist": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "bedrock:retrieveandgenerate"
+     ]
+    },
+    "DatabaseAdministrator": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "bedrock:retrieveandgenerate"
+     ]
+    },
+    "NetworkAdministrator": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "bedrock:retrieveandgenerate"
+     ]
+    },
+    "SystemAdministrator": {
+     "n": 1,
+     "mutating": 0,
+     "examples": [
+      "bedrock:retrieveandgenerate"
+     ]
+    },
+    "PowerUserAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    },
+    "AdministratorAccess": {
+     "n": 0,
+     "mutating": 0,
+     "examples": []
+    }
+   }
+  }
+ },
+ "totals": {
+  "held": 21369,
+  "amplified": {
+   "ViewOnlyAccess": 16301,
+   "ReadOnlyAccess": 6743,
+   "SupportUser": 17516,
+   "Billing": 21082,
+   "SecurityAudit": 13988,
+   "DataScientist": 18685,
+   "DatabaseAdministrator": 20409,
+   "NetworkAdministrator": 20491,
+   "SystemAdministrator": 18522,
+   "PowerUserAccess": 154,
+   "AdministratorAccess": 0
+  },
+  "amplified_mutating": {
+   "ViewOnlyAccess": 4430,
+   "ReadOnlyAccess": 4371,
+   "SupportUser": 4412,
+   "Billing": 4360,
+   "SecurityAudit": 4427,
+   "DataScientist": 3889,
+   "DatabaseAdministrator": 4268,
+   "NetworkAdministrator": 4233,
+   "SystemAdministrator": 3872,
+   "PowerUserAccess": 0,
+   "AdministratorAccess": 0
+  },
+  "agents_with_amplification": {
+   "ViewOnlyAccess": 11,
+   "ReadOnlyAccess": 9,
+   "SupportUser": 12,
+   "Billing": 13,
+   "SecurityAudit": 10,
+   "DataScientist": 12,
+   "DatabaseAdministrator": 12,
+   "NetworkAdministrator": 12,
+   "SystemAdministrator": 12,
+   "PowerUserAccess": 8,
+   "AdministratorAccess": 0
+  }
+ }
+}

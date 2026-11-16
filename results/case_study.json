@@ -1,0 +1,113 @@
+{
+ "x-conflict": [
+  {
+   "uid": 12,
+   "dom": 0,
+   "scope": 4,
+   "effect": "permit",
+   "conds": "action: read; app: hc; r1: patient=oncPat1; r4: type=HRitem; r5: ward=oncWard; u0: agentFor=oncPat2",
+   "flags_B512": {
+    "x-conflict": true,
+    "x-redundancy": true
+   },
+   "oracle": {
+    "x-conflict": true,
+    "x-redundancy": false
+   },
+   "flags_B4096": {
+    "x-conflict": true,
+    "x-redundancy": false
+   }
+  },
+  {
+   "uid": 863,
+   "dom": 2,
+   "scope": 4,
+   "effect": "deny",
+   "conds": "action: addItem, read; app: hc; r3: treatingTeam=oncTeam2; r5: ward=oncWard; u1: position=doctor; u2: specialties=cardiology",
+   "flags_B512": {
+    "x-conflict": true,
+    "x-redundancy": false
+   },
+   "oracle": {
+    "x-conflict": true,
+    "x-redundancy": false
+   },
+   "flags_B4096": {
+    "x-conflict": true,
+    "x-redundancy": false
+   }
+  }
+ ],
+ "x-redundancy": [
+  {
+   "uid": 2410,
+   "dom": 0,
+   "scope": 4,
+   "effect": "permit",
+   "conds": "action: addNote; app: hc; r3: treatingTeam=carTeam1; r5: ward=carWard; u0: agentFor=oncPat2",
+   "flags_B512": {
+    "x-conflict": true,
+    "x-redundancy": true
+   },
+   "oracle": {
+    "x-conflict": true,
+    "x-redundancy": true
+   },
+   "flags_B4096": {
+    "x-conflict": true,
+    "x-redundancy": true
+   }
+  },
+  {
+   "uid": 1878,
+   "dom": 4,
+   "scope": 4,
+   "effect": "permit",
+   "conds": "action: addItem, addNote; app: hc; r3: treatingTeam=carTeam1; r5: ward=carWard; u0: agentFor=oncPat2",
+   "flags_B512": {
+    "x-conflict": true,
+    "x-redundancy": true
+   },
+   "oracle": {
+    "x-conflict": true,
+    "x-redundancy": false
+   },
+   "flags_B4096": {
+    "x-conflict": true,
+    "x-redundancy": false
+   }
+  }
+ ],
+ "summary_B512": {
+  "x-conflict": {
+   "prec": 0.8504672897196262,
+   "rec": 1.0,
+   "f1": 0.9191919191919192
+  },
+  "x-redundancy": {
+   "prec": 0.4064143007360673,
+   "rec": 1.0,
+   "f1": 0.5779439252336449
+  }
+ },
+ "summary_B4096": {
+  "x-conflict": {
+   "prec": 0.9528795811518325,
+   "rec": 1.0,
+   "f1": 0.9758713136729222
+  },
+  "x-redundancy": {
+   "prec": 0.7952674897119342,
+   "rec": 1.0,
+   "f1": 0.8859598853868195
+  }
+ },
+ "scope_members": [
+  0,
+  2,
+  4,
+  5
+ ],
+ "n_rules_scope": 735
+}

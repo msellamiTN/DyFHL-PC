@@ -1,0 +1,281 @@
+{
+ "mpc": [
+  {
+   "dataset": "agentic",
+   "B": 512,
+   "agree": true,
+   "mults_per_domain": 4845824.0,
+   "rules_per_domain": 400.0,
+   "online_MB": 155.066368
+  },
+  {
+   "dataset": "agentic",
+   "B": 4096,
+   "agree": true,
+   "mults_per_domain": 38766592.0,
+   "rules_per_domain": 400.0,
+   "online_MB": 1240.530944
+  },
+  {
+   "dataset": "xu_stoller",
+   "B": 512,
+   "agree": true,
+   "mults_per_domain": 8147200.0,
+   "rules_per_domain": 400.0,
+   "online_MB": 260.7104
+  },
+  {
+   "dataset": "xu_stoller",
+   "B": 4096,
+   "agree": true,
+   "mults_per_domain": 65177600.0,
+   "rules_per_domain": 400.0,
+   "online_MB": 2085.6832
+  },
+  {
+   "dataset": "amazon",
+   "B": 512,
+   "agree": true,
+   "mults_per_domain": 6279168.0,
+   "rules_per_domain": 400.0,
+   "online_MB": 200.933376
+  },
+  {
+   "dataset": "amazon",
+   "B": 4096,
+   "agree": true,
+   "mults_per_domain": 50233344.0,
+   "rules_per_domain": 400.0,
+   "online_MB": 1607.467008
+  }
+ ],
+ "fp": [
+  {
+   "dataset": "agentic",
+   "B": 512,
+   "fpr": 0.3084057971014493,
+   "bound": 1.0,
+   "medN": 123.0
+  },
+  {
+   "dataset": "agentic",
+   "B": 4096,
+   "fpr": 0.04057971014492753,
+   "bound": 0.7164639945652174,
+   "medN": 123.0
+  },
+  {
+   "dataset": "agentic",
+   "B": 16384,
+   "fpr": 0.015072463768115942,
+   "bound": 0.4536439226675725,
+   "medN": 123.0
+  },
+  {
+   "dataset": "xu_stoller",
+   "B": 512,
+   "fpr": 0.5517241379310345,
+   "bound": 0.9158809267241379,
+   "medN": 100.0
+  },
+  {
+   "dataset": "xu_stoller",
+   "B": 4096,
+   "fpr": 0.15517241379310345,
+   "bound": 0.6475855334051724,
+   "medN": 100.0
+  },
+  {
+   "dataset": "xu_stoller",
+   "B": 16384,
+   "fpr": 0.039655172413793106,
+   "bound": 0.3010322307718211,
+   "medN": 100.0
+  },
+  {
+   "dataset": "amazon",
+   "B": 512,
+   "fpr": 0.12258064516129032,
+   "bound": 0.8828867047491039,
+   "medN": 72.0
+  },
+  {
+   "dataset": "amazon",
+   "B": 4096,
+   "fpr": 0.02078853046594982,
+   "bound": 0.5748984935035842,
+   "medN": 72.0
+  },
+  {
+   "dataset": "amazon",
+   "B": 16384,
+   "fpr": 0.005017921146953405,
+   "bound": 0.25029712526601705,
+   "medN": 72.0
+  }
+ ],
+ "upd": [
+  {
+   "dataset": "agentic",
+   "seed": 0,
+   "B": 64,
+   "exposed": 0.883177570093458
+  },
+  {
+   "dataset": "agentic",
+   "seed": 0,
+   "B": 512,
+   "exposed": 0.9813084112149533
+  },
+  {
+   "dataset": "agentic",
+   "seed": 0,
+   "B": 4096,
+   "exposed": 1.0
+  },
+  {
+   "dataset": "agentic",
+   "seed": 1,
+   "B": 64,
+   "exposed": 0.803680981595092
+  },
+  {
+   "dataset": "agentic",
+   "seed": 1,
+   "B": 512,
+   "exposed": 0.9447852760736196
+  },
+  {
+   "dataset": "agentic",
+   "seed": 1,
+   "B": 4096,
+   "exposed": 1.0
+  },
+  {
+   "dataset": "agentic",
+   "seed": 2,
+   "B": 64,
+   "exposed": 0.7768595041322314
+  },
+  {
+   "dataset": "agentic",
+   "seed": 2,
+   "B": 512,
+   "exposed": 0.9586776859504132
+  },
+  {
+   "dataset": "agentic",
+   "seed": 2,
+   "B": 4096,
+   "exposed": 1.0
+  },
+  {
+   "dataset": "xu_stoller",
+   "seed": 0,
+   "B": 64,
+   "exposed": 0.8344827586206897
+  },
+  {
+   "dataset": "xu_stoller",
+   "seed": 0,
+   "B": 512,
+   "exposed": 0.9586206896551724
+  },
+  {
+   "dataset": "xu_stoller",
+   "seed": 0,
+   "B": 4096,
+   "exposed": 1.0
+  },
+  {
+   "dataset": "xu_stoller",
+   "seed": 1,
+   "B": 64,
+   "exposed": 0.8288288288288288
+  },
+  {
+   "dataset": "xu_stoller",
+   "seed": 1,
+   "B": 512,
+   "exposed": 0.9819819819819819
+  },
+  {
+   "dataset": "xu_stoller",
+   "seed": 1,
+   "B": 4096,
+   "exposed": 1.0
+  },
+  {
+   "dataset": "xu_stoller",
+   "seed": 2,
+   "B": 64,
+   "exposed": 0.8347457627118644
+  },
+  {
+   "dataset": "xu_stoller",
+   "seed": 2,
+   "B": 512,
+   "exposed": 0.9745762711864406
+  },
+  {
+   "dataset": "xu_stoller",
+   "seed": 2,
+   "B": 4096,
+   "exposed": 1.0
+  },
+  {
+   "dataset": "amazon",
+   "seed": 0,
+   "B": 64,
+   "exposed": 0.8851351351351351
+  },
+  {
+   "dataset": "amazon",
+   "seed": 0,
+   "B": 512,
+   "exposed": 1.0
+  },
+  {
+   "dataset": "amazon",
+   "seed": 0,
+   "B": 4096,
+   "exposed": 1.0
+  },
+  {
+   "dataset": "amazon",
+   "seed": 1,
+   "B": 64,
+   "exposed": 0.8920634920634921
+  },
+  {
+   "dataset": "amazon",
+   "seed": 1,
+   "B": 512,
+   "exposed": 0.9936507936507937
+  },
+  {
+   "dataset": "amazon",
+   "seed": 1,
+   "B": 4096,
+   "exposed": 1.0
+  },
+  {
+   "dataset": "amazon",
+   "seed": 2,
+   "B": 64,
+   "exposed": 0.9148936170212766
+  },
+  {
+   "dataset": "amazon",
+   "seed": 2,
+   "B": 512,
+   "exposed": 0.9858156028368794
+  },
+  {
+   "dataset": "amazon",
+   "seed": 2,
+   "B": 4096,
+   "exposed": 1.0
+  }
+ ]
+}

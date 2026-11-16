@@ -1,0 +1,650 @@
+[
+ {
+  "dataset": "agentic",
+  "seed": 0,
+  "B": 32,
+  "exposed": 0.03160112359550562,
+  "mean_rules_per_cell": 4.45,
+  "predicted": 0.03082382683133774
+ },
+ {
+  "dataset": "agentic",
+  "seed": 0,
+  "B": 64,
+  "exposed": 0.10767790262172285,
+  "mean_rules_per_cell": 2.225,
+  "predicted": 0.10990530674625883
+ },
+ {
+  "dataset": "agentic",
+  "seed": 0,
+  "B": 128,
+  "exposed": 0.2675561797752809,
+  "mean_rules_per_cell": 1.1125,
+  "predicted": 0.2717147927360606
+ },
+ {
+  "dataset": "agentic",
+  "seed": 0,
+  "B": 256,
+  "exposed": 0.47635767790262173,
+  "mean_rules_per_cell": 0.55625,
+  "predicted": 0.48837553292357466
+ },
+ {
+  "dataset": "agentic",
+  "seed": 0,
+  "B": 512,
+  "exposed": 0.6729868913857678,
+  "mean_rules_per_cell": 0.278125,
+  "predicted": 0.6863090767501393
+ },
+ {
+  "dataset": "agentic",
+  "seed": 0,
+  "B": 1024,
+  "exposed": 0.8220973782771536,
+  "mean_rules_per_cell": 0.1390625,
+  "predicted": 0.8245582161642505
+ },
+ {
+  "dataset": "agentic",
+  "seed": 0,
+  "B": 2048,
+  "exposed": 0.903558052434457,
+  "mean_rules_per_cell": 0.06953125,
+  "predicted": 0.9069721974756029
+ },
+ {
+  "dataset": "agentic",
+  "seed": 0,
+  "B": 4096,
+  "exposed": 0.9515449438202247,
+  "mean_rules_per_cell": 0.034765625,
+  "predicted": 0.9520660849118552
+ },
+ {
+  "dataset": "agentic",
+  "seed": 0,
+  "B": 16384,
+  "exposed": 0.9887640449438202,
+  "mean_rules_per_cell": 0.00869140625,
+  "predicted": 0.9877393369881751
+ },
+ {
+  "dataset": "agentic",
+  "seed": 1,
+  "B": 32,
+  "exposed": 0.020613763174209546,
+  "mean_rules_per_cell": 4.800595238095238,
+  "predicted": 0.017660200543799964
+ },
+ {
+  "dataset": "agentic",
+  "seed": 1,
+  "B": 64,
+  "exposed": 0.09562926224426535,
+  "mean_rules_per_cell": 2.400297619047619,
+  "predicted": 0.0922238461009662
+ },
+ {
+  "dataset": "agentic",
+  "seed": 1,
+  "B": 128,
+  "exposed": 0.2672039677619343,
+  "mean_rules_per_cell": 1.2001488095238095,
+  "predicted": 0.27120807448532935
+ },
+ {
+  "dataset": "agentic",
+  "seed": 1,
+  "B": 256,
+  "exposed": 0.4981401115933044,
+  "mean_rules_per_cell": 0.6000744047619048,
+  "predicted": 0.5054336814700646
+ },
+ {
+  "dataset": "agentic",
+  "seed": 1,
+  "B": 512,
+  "exposed": 0.7146621202727836,
+  "mean_rules_per_cell": 0.3000372023809524,
+  "predicted": 0.7056326593291053
+ },
+ {
+  "dataset": "agentic",
+  "seed": 1,
+  "B": 1024,
+  "exposed": 0.8462492250464972,
+  "mean_rules_per_cell": 0.1500186011904762,
+  "predicted": 0.8384577756270818
+ },
+ {
+  "dataset": "agentic",
+  "seed": 1,
+  "B": 2048,
+  "exposed": 0.9111903285802851,
+  "mean_rules_per_cell": 0.0750093005952381,
+  "predicted": 0.9152496912165804
+ },
+ {
+  "dataset": "agentic",
+  "seed": 1,
+  "B": 4096,
+  "exposed": 0.95350278983261,
+  "mean_rules_per_cell": 0.03750465029761905,
+  "predicted": 0.9565764727311865
+ },
+ {
+  "dataset": "agentic",
+  "seed": 1,
+  "B": 16384,
+  "exposed": 0.9841909485430874,
+  "mean_rules_per_cell": 0.009376162574404762,
+  "predicted": 0.9889413765202391
+ },
+ {
+  "dataset": "agentic",
+  "seed": 2,
+  "B": 32,
+  "exposed": 0.03724315068493151,
+  "mean_rules_per_cell": 4.866666666666666,
+  "predicted": 0.037148791685429894
+ },
+ {
+  "dataset": "agentic",
+  "seed": 2,
+  "B": 64,
+  "exposed": 0.1014554794520548,
+  "mean_rules_per_cell": 2.433333333333333,
+  "predicted": 0.10062449043577958
+ },
+ {
+  "dataset": "agentic",
+  "seed": 2,
+  "B": 128,
+  "exposed": 0.2089041095890411,
+  "mean_rules_per_cell": 1.2166666666666666,
+  "predicted": 0.21218964007871047
+ },
+ {
+  "dataset": "agentic",
+  "seed": 2,
+  "B": 256,
+  "exposed": 0.3762842465753425,
+  "mean_rules_per_cell": 0.6083333333333333,
+  "predicted": 0.38638080493465726
+ },
+ {
+  "dataset": "agentic",
+  "seed": 2,
+  "B": 512,
+  "exposed": 0.5858304794520548,
+  "mean_rules_per_cell": 0.30416666666666664,
+  "predicted": 0.5875825309160309
+ },
+ {
+  "dataset": "agentic",
+  "seed": 2,
+  "B": 1024,
+  "exposed": 0.7688356164383562,
+  "mean_rules_per_cell": 0.15208333333333332,
+  "predicted": 0.7548554454376759
+ },
+ {
+  "dataset": "agentic",
+  "seed": 2,
+  "B": 2048,
+  "exposed": 0.8863441780821918,
+  "mean_rules_per_cell": 0.07604166666666666,
+  "predicted": 0.8653936012936014
+ },
+ {
+  "dataset": "agentic",
+  "seed": 2,
+  "B": 4096,
+  "exposed": 0.936429794520548,
+  "mean_rules_per_cell": 0.03802083333333333,
+  "predicted": 0.9293356605171827
+ },
+ {
+  "dataset": "agentic",
+  "seed": 2,
+  "B": 16384,
+  "exposed": 0.978595890410959,
+  "mean_rules_per_cell": 0.009505208333333333,
+  "predicted": 0.9816605193126813
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 0,
+  "B": 32,
+  "exposed": 0.024563781128239877,
+  "mean_rules_per_cell": 4.854440789473684,
+  "predicted": 0.024992388931231502
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 0,
+  "B": 64,
+  "exposed": 0.08826020667457225,
+  "mean_rules_per_cell": 2.427220394736842,
+  "predicted": 0.0947405259280627
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 0,
+  "B": 128,
+  "exposed": 0.2576655937658818,
+  "mean_rules_per_cell": 1.213610197368421,
+  "predicted": 0.24454034472469208
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 0,
+  "B": 256,
+  "exposed": 0.46450957140437066,
+  "mean_rules_per_cell": 0.6068050986842105,
+  "predicted": 0.45656511776544156
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 0,
+  "B": 512,
+  "exposed": 0.6622056581399288,
+  "mean_rules_per_cell": 0.30340254934210525,
+  "predicted": 0.660331777941266
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 0,
+  "B": 1024,
+  "exposed": 0.8119600203286464,
+  "mean_rules_per_cell": 0.15170127467105263,
+  "predicted": 0.807680969723875
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 0,
+  "B": 2048,
+  "exposed": 0.8964933084872099,
+  "mean_rules_per_cell": 0.07585063733552631,
+  "predicted": 0.8973138011359423
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 0,
+  "B": 4096,
+  "exposed": 0.9518888700660681,
+  "mean_rules_per_cell": 0.03792531866776316,
+  "predicted": 0.9468944870084233
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 0,
+  "B": 16384,
+  "exposed": 0.9881416229036083,
+  "mean_rules_per_cell": 0.00948132966694079,
+  "predicted": 0.9863776910389741
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 1,
+  "B": 32,
+  "exposed": 0.031772230245512685,
+  "mean_rules_per_cell": 4.7333984375,
+  "predicted": 0.030902519518588027
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 1,
+  "B": 64,
+  "exposed": 0.10129977305549824,
+  "mean_rules_per_cell": 2.36669921875,
+  "predicted": 0.09729646463781305
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 1,
+  "B": 128,
+  "exposed": 0.2354033422735713,
+  "mean_rules_per_cell": 1.183349609375,
+  "predicted": 0.2352160441183671
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 1,
+  "B": 256,
+  "exposed": 0.44192283886940376,
+  "mean_rules_per_cell": 0.5916748046875,
+  "predicted": 0.4358891274383317
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 1,
+  "B": 512,
+  "exposed": 0.6377140499277903,
+  "mean_rules_per_cell": 0.29583740234375,
+  "predicted": 0.6388963216575231
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 1,
+  "B": 1024,
+  "exposed": 0.7850216628842583,
+  "mean_rules_per_cell": 0.147918701171875,
+  "predicted": 0.792178599379446
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 1,
+  "B": 2048,
+  "exposed": 0.8863214359397565,
+  "mean_rules_per_cell": 0.0739593505859375,
+  "predicted": 0.887977718153411
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 1,
+  "B": 4096,
+  "exposed": 0.9438828141118217,
+  "mean_rules_per_cell": 0.03697967529296875,
+  "predicted": 0.9417693486180356
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 1,
+  "B": 16384,
+  "exposed": 0.9880338353620797,
+  "mean_rules_per_cell": 0.009244918823242188,
+  "predicted": 0.9850031718457217
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 2,
+  "B": 32,
+  "exposed": 0.02751365567469148,
+  "mean_rules_per_cell": 4.5431985294117645,
+  "predicted": 0.02833694292363057
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 2,
+  "B": 64,
+  "exposed": 0.11126846044911996,
+  "mean_rules_per_cell": 2.2715992647058822,
+  "predicted": 0.1061325159558946
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 2,
+  "B": 128,
+  "exposed": 0.26380740441027717,
+  "mean_rules_per_cell": 1.1357996323529411,
+  "predicted": 0.2664137558618949
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 2,
+  "B": 256,
+  "exposed": 0.4735990289297997,
+  "mean_rules_per_cell": 0.5678998161764706,
+  "predicted": 0.4833962225651531
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 2,
+  "B": 512,
+  "exposed": 0.6759053206554724,
+  "mean_rules_per_cell": 0.2839499080882353,
+  "predicted": 0.6828650715024811
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 2,
+  "B": 1024,
+  "exposed": 0.8163058871130893,
+  "mean_rules_per_cell": 0.14197495404411764,
+  "predicted": 0.8225338282676414
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 2,
+  "B": 2048,
+  "exposed": 0.8970260975116326,
+  "mean_rules_per_cell": 0.07098747702205882,
+  "predicted": 0.905875251228673
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 2,
+  "B": 4096,
+  "exposed": 0.9494234270685818,
+  "mean_rules_per_cell": 0.03549373851102941,
+  "predicted": 0.9514952068850919
+ },
+ {
+  "dataset": "xu_stoller",
+  "seed": 2,
+  "B": 16384,
+  "exposed": 0.988266235079911,
+  "mean_rules_per_cell": 0.008873434627757353,
+  "predicted": 0.9875922794098974
+ },
+ {
+  "dataset": "amazon",
+  "seed": 0,
+  "B": 32,
+  "exposed": 0.03198074277854195,
+  "mean_rules_per_cell": 4.54375,
+  "predicted": 0.02908274888754774
+ },
+ {
+  "dataset": "amazon",
+  "seed": 0,
+  "B": 64,
+  "exposed": 0.1048830811554333,
+  "mean_rules_per_cell": 2.271875,
+  "predicted": 0.10689480743255901
+ },
+ {
+  "dataset": "amazon",
+  "seed": 0,
+  "B": 128,
+  "exposed": 0.27097661623108665,
+  "mean_rules_per_cell": 1.1359375,
+  "predicted": 0.2650610907259858
+ },
+ {
+  "dataset": "amazon",
+  "seed": 0,
+  "B": 256,
+  "exposed": 0.4891678129298487,
+  "mean_rules_per_cell": 0.56796875,
+  "predicted": 0.479497465930004
+ },
+ {
+  "dataset": "amazon",
+  "seed": 0,
+  "B": 512,
+  "exposed": 0.6757221458046767,
+  "mean_rules_per_cell": 0.283984375,
+  "predicted": 0.6786929528095105
+ },
+ {
+  "dataset": "amazon",
+  "seed": 0,
+  "B": 1024,
+  "exposed": 0.8110385144429161,
+  "mean_rules_per_cell": 0.1419921875,
+  "predicted": 0.8195130073011532
+ },
+ {
+  "dataset": "amazon",
+  "seed": 0,
+  "B": 2048,
+  "exposed": 0.9040577716643742,
+  "mean_rules_per_cell": 0.07099609375,
+  "predicted": 0.9040606193153506
+ },
+ {
+  "dataset": "amazon",
+  "seed": 0,
+  "B": 4096,
+  "exposed": 0.9515130674002751,
+  "mean_rules_per_cell": 0.035498046875,
+  "predicted": 0.9505010297034447
+ },
+ {
+  "dataset": "amazon",
+  "seed": 0,
+  "B": 16384,
+  "exposed": 0.9886519944979367,
+  "mean_rules_per_cell": 0.00887451171875,
+  "predicted": 0.9873261286866163
+ },
+ {
+  "dataset": "amazon",
+  "seed": 1,
+  "B": 32,
+  "exposed": 0.026385224274406333,
+  "mean_rules_per_cell": 5.03359375,
+  "predicted": 0.026495296141892107
+ },
+ {
+  "dataset": "amazon",
+  "seed": 1,
+  "B": 64,
+  "exposed": 0.08629520409747013,
+  "mean_rules_per_cell": 2.516796875,
+  "predicted": 0.08923551682419434
+ },
+ {
+  "dataset": "amazon",
+  "seed": 1,
+  "B": 128,
+  "exposed": 0.2188421542759584,
+  "mean_rules_per_cell": 1.2583984375,
+  "predicted": 0.223616898737886
+ },
+ {
+  "dataset": "amazon",
+  "seed": 1,
+  "B": 256,
+  "exposed": 0.42619897563246933,
+  "mean_rules_per_cell": 0.62919921875,
+  "predicted": 0.42297059079580906
+ },
+ {
+  "dataset": "amazon",
+  "seed": 1,
+  "B": 512,
+  "exposed": 0.6205183920533913,
+  "mean_rules_per_cell": 0.314599609375,
+  "predicted": 0.628689379480666
+ },
+ {
+  "dataset": "amazon",
+  "seed": 1,
+  "B": 1024,
+  "exposed": 0.7701381344094366,
+  "mean_rules_per_cell": 0.1572998046875,
+  "predicted": 0.7857075341491917
+ },
+ {
+  "dataset": "amazon",
+  "seed": 1,
+  "B": 2048,
+  "exposed": 0.8607791401521031,
+  "mean_rules_per_cell": 0.07864990234375,
+  "predicted": 0.8843295078015074
+ },
+ {
+  "dataset": "amazon",
+  "seed": 1,
+  "B": 4096,
+  "exposed": 0.9213099487816234,
+  "mean_rules_per_cell": 0.039324951171875,
+  "predicted": 0.9398319665181152
+ },
+ {
+  "dataset": "amazon",
+  "seed": 1,
+  "B": 16384,
+  "exposed": 0.978891820580475,
+  "mean_rules_per_cell": 0.00983123779296875,
+  "predicted": 0.9844964012987993
+ },
+ {
+  "dataset": "amazon",
+  "seed": 2,
+  "B": 32,
+  "exposed": 0.05730866884294523,
+  "mean_rules_per_cell": 3.313701923076923,
+  "predicted": 0.05815585508016464
+ },
+ {
+  "dataset": "amazon",
+  "seed": 2,
+  "B": 64,
+  "exposed": 0.1628581791802684,
+  "mean_rules_per_cell": 1.6568509615384615,
+  "predicted": 0.17038296096211092
+ },
+ {
+  "dataset": "amazon",
+  "seed": 2,
+  "B": 128,
+  "exposed": 0.35437069278200944,
+  "mean_rules_per_cell": 0.8284254807692307,
+  "predicted": 0.35583418674073053
+ },
+ {
+  "dataset": "amazon",
+  "seed": 2,
+  "B": 256,
+  "exposed": 0.553500181356547,
+  "mean_rules_per_cell": 0.41421274038461536,
+  "predicted": 0.5682306323295157
+ },
+ {
+  "dataset": "amazon",
+  "seed": 2,
+  "B": 512,
+  "exposed": 0.7283278926369242,
+  "mean_rules_per_cell": 0.20710637019230768,
+  "predicted": 0.7437021720452304
+ },
+ {
+  "dataset": "amazon",
+  "seed": 2,
+  "B": 1024,
+  "exposed": 0.8585418933623504,
+  "mean_rules_per_cell": 0.10355318509615384,
+  "predicted": 0.8593592339554268
+ },
+ {
+  "dataset": "amazon",
+  "seed": 2,
+  "B": 2048,
+  "exposed": 0.9339862169024302,
+  "mean_rules_per_cell": 0.05177659254807692,
+  "predicted": 0.9261902308245223
+ },
+ {
+  "dataset": "amazon",
+  "seed": 2,
+  "B": 4096,
+  "exposed": 0.9640914036996736,
+  "mean_rules_per_cell": 0.02588829627403846,
+  "predicted": 0.9621718700986419
+ },
+ {
+  "dataset": "amazon",
+  "seed": 2,
+  "B": 16384,
+  "exposed": 0.9912948857453754,
+  "mean_rules_per_cell": 0.006472074068509615,
+  "predicted": 0.9903639628741802
+ }
+]

@@ -1,0 +1,43 @@
+{
+ "policies": 1686,
+ "counts": {
+  "statements": 9602,
+  "effect_Allow": 9515,
+  "has_condition": 4288,
+  "has_negation": 31,
+  "action_pattern_general": 66,
+  "resource_specific": 5053,
+  "level_direct": 2751,
+  "level_pattern_reducible": 2534,
+  "level_condition_non_set": 1496,
+  "level_negation": 31,
+  "level_condition_set": 2790,
+  "effect_Deny": 87
+ },
+ "condition_operators": {
+  "StringEquals": 3514,
+  "StringLike": 921,
+  "Null": 543,
+  "ArnLike": 144,
+  "Bool": 122,
+  "StringNotEquals": 87,
+  "ArnEquals": 45,
+  "StringEqualsIgnoreCase": 28,
+  "StringNotLike": 8,
+  "ArnNotLike": 4,
+  "NumericGreaterThanEquals": 1
+ },
+ "action_vocabulary": 12473,
+ "analysed_policies": 1658,
+ "analysed_statements": 8054,
+ "analysed_with_condition": 2790,
+ "intra_redundant_pairs": 21,
+ "redundant_pairs_involving_condition": 13,
+ "policies_with_redundancy": 18,
+ "intra_conflict_pairs": 10,
+ "conflict_pairs_involving_condition": 8,
+ "policies_with_conflict": 9,
+ "unconditional_deny_statements": 15,
+ "cross_policy_deny_allow_pairs": 3209,
+ "policies_hit_by_some_deny": 1546
+}

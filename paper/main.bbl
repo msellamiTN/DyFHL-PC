@@ -1,0 +1,210 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{mcp2025spec}
+{Model Context Protocol}, Model context protocol specification, revision
+  2025-11-25, \url{https://modelcontextprotocol.io/specification/2025-11-25}
+  (2025).
+
+\bibitem{hou2026mcp}
+X.~Hou, Y.~Zhao, S.~Wang, H.~Wang, Model context protocol ({MCP}): Landscape,
+  security threats, and future research directions, ACM Transactions on
+  Software Engineering and Methodology (2026).
+\newblock \href {https://doi.org/10.1145/3796519} {\path{doi:10.1145/3796519}}.
+
+\bibitem{nsa2026mcp}
+{National Security Agency}, Model context protocol ({MCP}): Security design
+  considerations, Tech. rep., NSA Cybersecurity Information Sheet
+  U/OO/6030316-26 (May 2026).
+
+\bibitem{openid2025agentic}
+{OpenID Foundation}, Identity management for agentic {AI}: The new frontier of
+  authorization, authentication, and security for an {AI} agent world,
+  Whitepaper, OpenID Foundation (2025).
+
+\bibitem{bharti2026drift}
+G.~Bharti, Registry descriptions go stale unevenly: An 89-day measurement of
+  model context protocol drift, and why drift-ranked re-auditing under-covers
+  it, arXiv:2608.00997, preprint (2026).
+
+\bibitem{wang2026mcptox}
+Z.~Wang, Y.~Gao, Y.~Wang, S.~Liu, H.~Sun, H.~Cheng, G.~Shi, H.~Du, X.~Li,
+  {MCPTox}: A benchmark for tool poisoning on real-world {MCP} servers, in:
+  Proceedings of the AAAI Conference on Artificial Intelligence, Vol.~40, 2026.
+\newblock \href {https://doi.org/10.1609/aaai.v40i42.40895}
+  {\path{doi:10.1609/aaai.v40i42.40895}}.
+
+\bibitem{surapani2026authz}
+R.~K. Surapani, P.~K.~D. Kakitapelli, A.~Morampudi, P.~Padi, Authorization
+  architectures for tool-using {AI} agents, arXiv:2609.15906, preprint (2026).
+
+\bibitem{fisler2005margrave}
+K.~Fisler, S.~Krishnamurthi, L.~A. Meyerovich, M.~C. Tschantz, Verification and
+  change-impact analysis of access-control policies, in: Proceedings of the
+  27th International Conference on Software Engineering (ICSE), 2005, pp.
+  196--205.
+
+\bibitem{hu2013anomalies}
+H.~Hu, G.-J. Ahn, K.~Kulkarni, Discovery and resolution of anomalies in web
+  access control policies, IEEE Transactions on Dependable and Secure Computing
+  10~(6) (2013) 341--354.
+
+\bibitem{lin2010exam}
+D.~Lin, P.~Rao, E.~Bertino, N.~Li, J.~Lobo, {EXAM}: A comprehensive environment
+  for the analysis of access control policies, International Journal of
+  Information Security 9~(4) (2010) 253--273.
+
+\bibitem{backes2018zelkova}
+J.~Backes, P.~Bolignano, B.~Cook, C.~Dodge, A.~Gacek, K.~Luckow, N.~Rungta,
+  O.~Tkachuk, C.~Varming, Semantic-based automated reasoning for {AWS} access
+  policies using {SMT}, in: Formal Methods in Computer-Aided Design (FMCAD),
+  2018.
+
+\bibitem{barnett2025authz}
+L.~A. Barnett, L.~D'Antoni, A.~Goel, R.~G. K{\i}c{\i}, N.~Rungta, M.~Southern,
+  C.~Sung, Modeling the {AWS} authorization engine, in: Formal Methods in
+  Computer-Aided Design (FMCAD), 2025.
+
+\bibitem{cutler2024cedar}
+J.~W. Cutler, et~al., Cedar: A new language for expressive, fast, safe, and
+  analyzable authorization, Proceedings of the ACM on Programming Languages
+  8~(OOPSLA1) (2024).
+
+\bibitem{bonatti2002algebra}
+P.~Bonatti, S.~{De Capitani di Vimercati}, P.~Samarati, An algebra for
+  composing access control policies, ACM Transactions on Information and System
+  Security 5~(1) (2002) 1--35.
+
+\bibitem{mazzoleni2008integration}
+P.~Mazzoleni, B.~Crispo, S.~Sivasubramanian, E.~Bertino, {XACML} policy
+  integration algorithms, ACM Transactions on Information and System Security
+  11~(1) (2008).
+
+\bibitem{mcdaniel2006reconciliation}
+P.~McDaniel, A.~Prakash, Methods and limitations of security policy
+  reconciliation, ACM Transactions on Information and System Security 9~(3)
+  (2006) 259--291.
+
+\bibitem{chen2013firewall}
+F.~Chen, B.~Bruhadeshwar, A.~X. Liu, Cross-domain privacy-preserving
+  cooperative firewall optimization, IEEE/ACM Transactions on Networking 21~(3)
+  (2013) 857--868.
+\newblock \href {https://doi.org/10.1109/TNET.2012.2217985}
+  {\path{doi:10.1109/TNET.2012.2217985}}.
+
+\bibitem{liu2020smer}
+M.~Liu, Y.~Luo, C.~Yang, S.~Pang, D.~Puthal, K.~Ren, X.~Zhang,
+  Privacy-preserving matrix product based static mutual exclusive roles
+  constraints violation detection in interoperable role-based access control,
+  Future Generation Computer Systems 109 (2020) 457--468.
+\newblock \href {https://doi.org/10.1016/j.future.2018.10.017}
+  {\path{doi:10.1016/j.future.2018.10.017}}.
+
+\bibitem{sheikhalishahi2019multiparty}
+M.~Sheikhalishahi, G.~Tillem, Z.~Erkin, N.~Zannone, Privacy-preserving
+  multi-party access control, in: Proceedings of the 18th ACM Workshop on
+  Privacy in the Electronic Society (WPES), 2019, pp. 1--13.
+\newblock \href {https://doi.org/10.1145/3338498.3358643}
+  {\path{doi:10.1145/3338498.3358643}}.
+
+\bibitem{alshaer2004firewalls}
+E.~S. Al-Shaer, H.~H. Hamed, Discovery of policy anomalies in distributed
+  firewalls, in: Proceedings of IEEE INFOCOM 2004, 2004.
+
+\bibitem{bertino2018quality}
+E.~Bertino, A.~Abu~Jabal, S.~Calo, D.~Verma, C.~Williams, The challenge of
+  access control policies quality, ACM Journal of Data and Information Quality
+  10~(2) (2018).
+
+\bibitem{gong1996interop}
+L.~Gong, X.~Qian, Computational issues in secure interoperation, IEEE
+  Transactions on Software Engineering 22~(1) (1996) 43--52.
+
+\bibitem{john2026multicloud}
+J.~C. John, A.~Gupta, S.~Sural, Secure multi-cloud collaboration using data
+  leakage free attribute-based access control policies, Computers \& Security
+  161 (2026) 104736.
+\newblock \href {https://doi.org/10.1016/j.cose.2025.104736}
+  {\path{doi:10.1016/j.cose.2025.104736}}.
+
+\bibitem{gofman2010arbac}
+M.~I. Gofman, R.~Luo, P.~Yang, User-role reachability analysis of evolving
+  administrative role based access control, in: Computer Security -- ESORICS
+  2010, Lecture Notes in Computer Science, Springer, 2010.
+\newblock \href {https://doi.org/10.1007/978-3-642-15497-3_28}
+  {\path{doi:10.1007/978-3-642-15497-3_28}}.
+
+\bibitem{park2004ucon}
+J.~Park, R.~Sandhu, The {UCON}\textsubscript{{ABC}} usage control model, ACM
+  Transactions on Information and System Security 7~(1) (2004) 128--174.
+
+\bibitem{w3c2018odrl}
+{W3C}, {ODRL} information model 2.2, W3C Recommendation (2018).
+
+\bibitem{nist800207a}
+R.~Chandramouli, Z.~Butcher, A zero trust architecture model for access control
+  in cloud-native applications in multi-cloud environments, Tech. Rep. NIST SP
+  800-207A, National Institute of Standards and Technology (2023).
+\newblock \href {https://doi.org/10.6028/NIST.SP.800-207A}
+  {\path{doi:10.6028/NIST.SP.800-207A}}.
+
+\bibitem{rfc8693}
+M.~B. Jones, A.~Nadalin, B.~Campbell, J.~Bradley, C.~Mortimore, {OAuth} 2.0
+  token exchange, RFC 8693, IETF (2020).
+
+\bibitem{pang2019zanzibar}
+R.~Pang, et~al., Zanzibar: {Google}'s consistent, global authorization system,
+  in: Proceedings of the USENIX Annual Technical Conference (USENIX ATC), 2019,
+  pp. 33--46.
+
+\bibitem{hardy1988deputy}
+N.~Hardy, The confused deputy (or why capabilities might have been invented),
+  ACM SIGOPS Operating Systems Review 22~(4) (1988) 36--38.
+
+\bibitem{feng2019hgnn}
+Y.~Feng, H.~You, Z.~Zhang, R.~Ji, Y.~Gao, Hypergraph neural networks, in:
+  Proceedings of the AAAI Conference on Artificial Intelligence, Vol.~33, 2019,
+  pp. 3558--3565.
+
+\bibitem{mcmahan2017fedavg}
+B.~McMahan, E.~Moore, D.~Ramage, S.~Hampson, B.~A. y~Arcas,
+  Communication-efficient learning of deep networks from decentralized data,
+  in: Proceedings of the 20th International Conference on Artificial
+  Intelligence and Statistics (AISTATS), 2017, pp. 1273--1282.
+
+\bibitem{oasis2013xacml}
+{OASIS}, {eXtensible Access Control Markup Language (XACML)} version 3.0, OASIS
+  Standard (2013).
+
+\bibitem{garey1979intractability}
+M.~R. Garey, D.~S. Johnson, Computers and Intractability: A Guide to the Theory
+  of {NP}-Completeness, W. H. Freeman, 1979.
+
+\bibitem{beaver1991triples}
+D.~Beaver, Efficient multiparty protocols using circuit randomization, in:
+  Advances in Cryptology -- CRYPTO '91, Vol. 576 of Lecture Notes in Computer
+  Science, Springer, 1991, pp. 420--432.
+
+\bibitem{goldreich2004foundations}
+O.~Goldreich, Foundations of Cryptography, Volume 2: Basic Applications,
+  Cambridge University Press, 2004.
+
+\bibitem{mamip}
+{MAMIP contributors}, {MAMIP}: Monitor {AWS} managed {IAM} policies,
+  \url{https://github.com/z0ph/MAMIP}, git history from 3 November 2025 to 14
+  November 2026 (2026).
+
+\bibitem{mcpatlas2026}
+{MCP Atlas Census contributors}, {MCP Atlas Census}: Tool records with input
+  schemas, v1.0.0, \url{https://github.com/DSHCorrectover/mcp-atlas-census},
+  cC0 1.0 (2026).
+
+\bibitem{kaggle2013amazon}
+{Kaggle}, Amazon.com -- employee access challenge,
+  \url{https://www.kaggle.com/c/amazon-employee-access-challenge} (2013).
+
+\end{thebibliography}

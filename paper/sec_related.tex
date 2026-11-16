@@ -1,0 +1,43 @@
+%=====================================================================
+\section{Related work}\label{sec:related}
+
+% Plan: theme 1 — analysis of one readable policy set; compare: single owner, no tools/usage, change only as diff of one policy.
+\paragraph{Analysis of a single policy set} Policy analysis has a long tradition of checking one policy set that the analyser can read. Margrave compiles XACML policies to decision diagrams, verifies properties and computes the semantic difference between two versions~\cite{fisler2005margrave}. EXAM supports the comparison and integration of policies~\cite{lin2010exam}, and Hu et al.\ partition the request space into segments to find and resolve conflicts and redundancies in XACML~\cite{hu2013anomalies}, following the anomaly taxonomy introduced for distributed firewalls~\cite{alshaer2004firewalls}. For cloud policies, Zelkova encodes AWS policies in SMT~\cite{backes2018zelkova}, a formal model of the AWS authorisation engine covers identity-, resource- and organisation-level policies together~\cite{barnett2025authz}, and Cedar was designed so that its policies can be analysed~\cite{cutler2024cedar}. Bertino et al.\ organise the quality of policies into dimensions such as consistency, minimality, relevance and completeness~\cite{bertino2018quality}. These tools are exact and mature. They differ from our setting in three respects: they assume that one party can read all policies, they analyse one layer of decisions rather than the chain from tool to data to usage, and, where they handle change, they compare two versions of a single policy rather than checking the effect of one owner's change on findings that involve others. We reuse their core tests: our overlap and subsumption lemmas are the standard conditions for conjunctive rules.
+
+% Plan: theme 2 — composition and multi-domain; compare: integrator sees policies; no change admission.
+\paragraph{Composition and multi-domain policies} The algebra of Bonatti et al.\ composes policies of several authorities~\cite{bonatti2002algebra}; Gong and Qian study the complexity of secure interoperation between domains~\cite{gong1996interop}; Mazzoleni et al.\ integrate XACML policies of several parties~\cite{mazzoleni2008integration}; and McDaniel and Prakash show the limits of reconciling security policies~\cite{mcdaniel2006reconciliation}. More recently, John et al.\ derive leakage-free attribute-based policies for multi-cloud collaboration~\cite{john2026multicloud}. These works define how policies of different owners should combine, and we adopt one of their conclusions, that an action crossing owners should be allowed only if each owner allows its part. They assume, however, an integrator who reads the policies, and they compute a combined policy once rather than admitting changes to it.
+
+% Plan: theme 3 — privacy-preserving policy analysis; compare closely (nearest prior work).
+\paragraph{Privacy-preserving analysis across domains} Three lines of work analyse policies of several parties without disclosing them, and they are the closest to ours. Chen et al.\ remove redundant firewall rules across two administrative domains with a cooperative protocol in which neither firewall reveals its policy~\cite{chen2013firewall}. Liu et al.\ detect violations of separation-of-duty constraints between two role-based domains through a secure three-party matrix product~\cite{liu2020smer}. Sheikhalishahi et al.\ evaluate an access request against the policies of the co-owners of a resource with homomorphic encryption and secure function evaluation~\cite{sheikhalishahi2019multiparty}. Our same-layer check is closest to Liu et al.: comparing attribute rules also reduces to products of incidence matrices. We extend this to rules over several attributes and three anomaly types, add cross-layer checks between tool, data and usage policies, and restrict every computation to the region of a change. None of the three works models tools, delegation or usage terms, and none addresses change.
+
+% Plan: theme 4 — change impact and incremental analysis.
+\paragraph{Change and incremental analysis} Change-impact analysis computes which requests receive a different decision after an edit~\cite{fisler2005margrave}. Gofman et al.\ give incremental algorithms for user--role reachability under administrative role-based access control, deciding whether a change can affect the previous result and reusing it~\cite{gofman2010arbac}. Our locality theorem plays the same role for a federated, multi-layer state, and we add what an incremental analyser alone does not provide: a proof that checking the region of each change is necessary and sufficient for an invariant to hold in every reachable state, and a way to run that check across owners without disclosure.
+
+% Plan: theme 5 — agent and MCP authorisation; compare: runtime enforcement vs static admission of policy change.
+\paragraph{Authorisation for agents and tools} Usage control extends access control with obligations and conditions on use~\cite{park2004ucon}, and ODRL expresses such terms~\cite{w3c2018odrl}. For services and agents, zero-trust guidance places a policy decision at every hop~\cite{nist800207a}, token exchange carries the user on whose behalf a service acts~\cite{rfc8693}, and global authorisation services answer such checks at scale~\cite{pang2019zanzibar}. MCP specifies an OAuth-based authorisation flow but cannot enforce it at protocol level~\cite{mcp2025spec,nsa2026mcp}. Studies of the MCP ecosystem document missing authorisation~\cite{hou2026mcp}, tool poisoning~\cite{wang2026mcptox} and descriptions that change after audit~\cite{bharti2026drift}; a survey of agent authorisation lists re-approval on tool change and cross-organisation policy mapping as open~\cite{surapani2026authz}. This work addresses the enforcement of a decision at run time and the detection of malicious descriptions. Our question is complementary: whether the policies that the enforcement points apply remain jointly consistent as they change. The confused-deputy problem~\cite{hardy1988deputy} appears in our model as privilege amplification, a property of the composed policies rather than of a single call.
+
+% Plan: theme 6 — hypergraph and federated learning, short.
+\paragraph{Hypergraph and federated learning} Hypergraph neural networks propagate information between vertices through hyperedges~\cite{feng2019hgnn}, and federated averaging trains a shared model without pooling data~\cite{mcmahan2017fedavg}. We use both only for the optional ranking component, and our evaluation reports that hypergraph propagation does not improve over a hyperedge scorer.
+
+% Plan: positioning table.
+\Cref{tab:related} summarises the comparison. To our knowledge, no prior work admits changes to the policies of several owners across tool, data and usage layers with exact results and without disclosure.
+
+\begin{table}[t]
+\centering\footnotesize
+\caption{Positioning. \emph{Owners}: policies of several owners analysed together; \emph{private}: no owner discloses its policy; \emph{layers}: tool, data and usage decisions composed; \emph{change}: effect of a change computed incrementally; \emph{exact}: no false alarms or misses by design. $\circ$: partially.}\label{tab:related}
+\begin{tabularx}{\linewidth}{Xccccc}
+\toprule
+Work & Owners & Private & Layers & Change & Exact\\
+\midrule
+Margrave~\cite{fisler2005margrave} & -- & -- & -- & $\circ$ & \checkmark\\
+Segment-based XACML analysis~\cite{hu2013anomalies}, EXAM~\cite{lin2010exam} & $\circ$ & -- & -- & -- & \checkmark\\
+Zelkova~\cite{backes2018zelkova}, AWS engine model~\cite{barnett2025authz} & -- & -- & $\circ$ & -- & \checkmark\\
+Policy integration~\cite{mazzoleni2008integration}, algebra~\cite{bonatti2002algebra} & \checkmark & -- & -- & -- & \checkmark\\
+Incremental ARBAC analysis~\cite{gofman2010arbac} & -- & -- & -- & \checkmark & \checkmark\\
+Cooperative firewall optimisation~\cite{chen2013firewall} & \checkmark & \checkmark & -- & -- & \checkmark\\
+Secure SMER detection~\cite{liu2020smer} & \checkmark & \checkmark & -- & -- & \checkmark\\
+Private multi-party evaluation~\cite{sheikhalishahi2019multiparty} & \checkmark & \checkmark & -- & -- & \checkmark\\
+\name{} (this work) & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+\bottomrule
+\end{tabularx}
+\end{table}

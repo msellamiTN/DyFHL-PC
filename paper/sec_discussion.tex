@@ -1,0 +1,37 @@
+%=====================================================================
+\section{Discussion}\label{sec:discussion}
+
+\paragraph{What the results support} The central claims are exact and verified: a change alters findings only inside its region (\Cref{thm:locality}, no exception in \eOneEvents{} constructed and \awsEvents{} real events), checking that region is necessary and sufficient for the invariant (\Cref{thm:preservation}), and the secure checks return exactly the plaintext findings. The empirical claims are about cost and relevance: on real policy changes the region is small for most changes, and admission would have surfaced a year's growth of agent authority beyond read-only job functions at the moment each change was made.
+
+\paragraph{Why a hypergraph, federated and dynamic} Each word names a property the method uses. The hypergraph gives one representation for rules of three layers, tool descriptions and requests, and its incidence rows turn overlap and subsumption into inner products, which is what makes the secure checks cheap. Federation is required because the findings that matter join rules of different owners. Dynamics is the object of the analysis: the region of an event is defined on the hypergraph's vertices, and the invariant is maintained event by event. Learning is confined to ranking, where it helps only for resources new to an organisation; we do not claim more.
+
+\paragraph{Deployment} Admission fits where policy changes already pass a gate: a pull request on policy-as-code, the approval of a tool in a registry, or the publication of a new tool description at an MCP gateway. The owner's gate calls Algorithm~\ref{alg:admit} and blocks the merge or the approval while the event is held. The two servers can be run by two independent auditors, by a consortium operator and an auditor, or, when only two organisations are involved, by the two organisations themselves; the last case is ordinary two-party computation with a dealer, but \Cref{thm:security} as stated assumes that no server colludes with an owner, and we have not proved the stronger statement this deployment needs. The baseline we compare admission with is full recomputation by the same exact engine, because no existing analyser handles a federated multi-layer state; single-policy analysers such as Zelkova or Cedar's analyser~\cite{backes2018zelkova,cutler2024cedar} could serve as the local engine of each owner.
+
+\paragraph{Limitations}
+\begin{itemize}
+\item \emph{Constructed cross-organisation data.} No public dataset pairs the tool, data and usage policies of several organisations. The AWS history is real but has one owner, and its agent--person pairing is ours; the federations are generated. The finding rates of the federations are not estimates of practice.
+\item \emph{Vocabulary.} \Cref{as:vocab} is strong. Organisations rarely share role names or resource classes, and a mapping between vocabularies is itself a policy that can be wrong. A change to the mapping is an event whose region is every rule on the mapped vertices; we have not evaluated such events.
+\item \emph{Descriptions.} Findings are relative to declared descriptions. Open-ended tools, \csOpenPct\% of the census, admit only over-approximate descriptions, and descriptions that misrepresent the code are a matter for runtime monitoring and attestation.
+\item \emph{Expressiveness.} Conditions that are not attribute sets, 15.6\% of real AWS statements, are not analysed, and redundancy is tested against single rules, not unions (\Cref{thm:hard}).
+\item \emph{Security model.} Semi-honest parties, two non-colluding servers and a dealer. A malicious owner could submit malformed rows to force or hide flags, and the prototype's generator and 31-bit field are not production choices. The cost of replacing the dealer was not measured, and network latency was not measured.
+\item \emph{Output leakage.} Per-user findings tell a tool host which of its users a partner refuses (\Cref{prop:probe}); existence-only outputs with a quota limit this to one bit per event but are less actionable.
+\item \emph{Ranking.} The learning experiment uses a random split of logs without timestamps, one dataset, and unprotected model updates.
+\end{itemize}
+
+\paragraph{Future work} The next steps are a vocabulary-mapping event with its own region, a maliciously secure variant with input validation, a dealer-free preprocessing, evaluation on time-ordered logs, and a field study with organisations that share agents and tools.
+
+%=====================================================================
+\section{Conclusion}\label{sec:conclusion}
+Agents and tools make every call cross the policies of several owners, and those policies change daily. \name{} turns the question ``is the joint policy correct?'', which no owner can ask, into ``does this change keep it governed?'', which the owners concerned can answer together. The answer is exact, local and private: a change can only alter findings in a region fixed by the vertices it touches, checking that region is necessary and sufficient for the invariant, and the check runs on secret shares so that each owner learns only what concerns it. On a year of real AWS policy changes the region is a median \awsRegMed\% of statements and admission would have held \awsHeld{} changes, including those that gave agent services state-changing actions beyond read-only job functions.
+
+\section*{CRediT authorship contribution statement}
+\textbf{Mokhtar Sellami:} Conceptualization, Methodology, Software, Formal analysis, Investigation, Writing -- original draft, Writing -- review \& editing.
+
+\section*{Declaration of competing interest}
+The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work the author used an AI assistant (Claude, Anthropic) to draft text, write and run experiment code, and check proofs. The author reviewed and edited the content and takes full responsibility for the content of the publication.
+
+\section*{Data availability}
+The AWS managed-policy history and the MCP Atlas Census are public~\cite{mamip,mcpatlas2026}; the Amazon access data are public~\cite{kaggle2013amazon}. The code that generates the constructed federations and every number, table and figure of this paper is available at \url{https://github.com/msellamiTN/DyFHL-PA}.

@@ -1,0 +1,5 @@
+Governance of agent and tool ecosystems stated as an invariant preserved by change.
+One federated hypergraph holds tool, data and usage rules of all owners.
+Exact admission check: necessary and sufficient, cost bounded by a local region.
+Cross-owner checks on secret shares reveal only the findings to their owners.
+One year of AWS policy changes: median region 2.1% of statements.

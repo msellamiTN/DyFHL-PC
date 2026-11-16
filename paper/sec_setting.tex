@@ -1,0 +1,87 @@
+%=====================================================================
+\section{Setting and problem}\label{sec:setting}
+
+\subsection{Running example}\label{sec:example}
+% Plan: two organisations and three changes, used throughout.
+A clinic $C$ owns two resources, electronic health records (\textit{ehr}) and insurance claims (\textit{claims}). A vendor $V$ operates an agent platform that $C$'s staff use, and hosts two MCP tools: \texttt{summarise}, which reads \textit{ehr} under a service account of $V$, and \texttt{export}, which reads \textit{claims} on behalf of the calling user and sends a report to $V$'s analytics store in the EU. $V$'s tool policy lets clinicians and analysts call \texttt{summarise} and analysts call \texttt{export}. $C$'s data policy lets clinicians read \textit{ehr} and analysts read \textit{claims}. $C$'s usage policy allows \textit{claims} to be used for analytics by $C$ or $V$ in the EU and to be retained for at most 30 days.
+
+Three changes occur in one week.
+\begin{description}
+\item[$\epsilon_1$ (by $C$).] Users complain that \texttt{summarise} always fails, because $C$ never granted $V$'s service account access to \textit{ehr}. $C$ adds a data rule that does.
+\item[$\epsilon_2$ (by $V$).] $V$ updates the description of \texttt{export}: reports are now also sent to a research partner $R$ in the US.
+\item[$\epsilon_3$ (by $V$).] $V$ lets interns call \texttt{export}.
+\end{description}
+Each change is reasonable from its author's point of view, and each is reviewed by its author only. After $\epsilon_1$, analysts read health records through \texttt{summarise} that $C$ denies them directly. After $\epsilon_2$, claims leave the region and the organisations that $C$ allows. After $\epsilon_3$, interns are offered a tool that $C$'s policy will refuse. No owner sees any of these three facts in its own policy, and neither owner is willing to show its policy to the other. The rest of the paper shows how the three changes are detected at the moment they are made, by the owners concerned only, and without either owner reading the other's rules.
+
+\subsection{System model}
+% Plan: organisations, layers, tools, the shared vocabulary assumption.
+A finite set $O$ of organisations shares an environment. Each organisation owns users, agents, tools and resources, writes the policies that govern what it owns, and runs policy enforcement points that apply them. A call by an agent crosses three decisions, which we call \emph{layers}.
+\begin{itemize}
+\item The \emph{tool layer} decides whether a user, through an agent, may invoke a tool. It belongs to the organisation that hosts the tool or operates the gateway in front of it.
+\item The \emph{data layer} decides whether an identity may access a resource. It belongs to the owner of the resource.
+\item The \emph{usage layer} decides for which purpose, towards which destination and for how long a resource may be used once read, in the sense of usage control~\cite{park2004ucon}. It belongs to the owner of the resource.
+\end{itemize}
+A tool is described by the resources it reads, its purpose, its retention, the destinations (\emph{sinks}) it sends to, and the identity under which it acts: the calling user (\emph{on behalf of}, as with token exchange~\cite{rfc8693}) or a service account of its host. A tool has an \emph{approved} description, recorded when an owner accepted it, and a \emph{current} one, which the tool publishes and may change.
+
+\begin{assumption}[Shared vocabulary]\label{as:vocab}
+The organisations agree on the attributes and values used to describe principals, tools, resources, purposes and sinks, or on a mapping between their vocabularies.
+\end{assumption}
+\begin{assumption}[Mediation]\label{as:mediation}
+Every call passes the enforcement point of each layer, which receives the user, the agent, the tool and the effective identity.
+\end{assumption}
+\Cref{as:vocab} is what any cross-organisation policy needs, encrypted or not; we return to its cost in Section~\ref{sec:discussion}. \Cref{as:mediation} is the subject of zero-trust architectures~\cite{nist800207a}; we do not check it, we check what the enforcement points enforce.
+
+\begin{figure}[t]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize, >=Stealth,
+  org/.style={draw, rounded corners=3pt, minimum width=3.8cm, minimum height=2.7cm},
+  box/.style={draw, rounded corners=2pt, fill=white, align=center, inner sep=3pt},
+  srv/.style={draw, fill=gray!12, rounded corners=2pt, align=center, minimum width=1.8cm, inner sep=4pt},
+  lbl/.style={fill=white, inner sep=1pt, font=\scriptsize},
+  arr/.style={->, thick}]
+\node[org, fill=blue!5] (C) at (0,0.4) {};
+\node[anchor=north, font=\footnotesize\bfseries] at (C.north) {Clinic $C$};
+\node[box] (Cf) at (0,0.55) {fragment $\G^{C}$\\ data and usage rules};
+\node[box, fill=blue!12] (Cl) at (0,-0.45) {decide locally};
+\node[org, fill=orange!7] (V) at (12,0.4) {};
+\node[anchor=north, font=\footnotesize\bfseries] at (V.north) {Vendor $V$};
+\node[box] (Vf) at (12,0.55) {fragment $\G^{V}$\\ tool rules, tools $d_0, d_1$};
+\node[box, fill=orange!18] (Vl) at (12,-0.45) {decide locally};
+\node[box, minimum width=3.4cm] (ev) at (6,3.3) {change event $\epsilon$ issued by $V$\\ (rule, tool, usage term)};
+\node[box, minimum width=3.4cm] (reg) at (6,2.0) {region $\Reg(\epsilon)$ from the index\\ (Algorithm~\ref{alg:region})};
+\node[srv] (s1) at (4.4,0.0) {server $S_1$};
+\node[srv] (s2) at (7.6,0.0) {server $S_2$};
+\node[box, fill=gray!5] (deal) at (6,-1.4) {dealer: Beaver triples};
+\node[box, fill=green!8, minimum width=3.4cm] (ver) at (6,-2.9) {verdict: accept, or hold\\ with findings for their owners};
+\node[box, fill=purple!7] (rank) at (12,-2.9) {federated ranking\\ $\hat\lambda$ (Section~\ref{sec:ranking})};
+\node[draw, rounded corners=3pt, fill=green!5, align=center, inner sep=4pt] (R) at (0,-2.9) {\textbf{Partner $R$}\\ (receives data)};
+\draw[arr] (V.north) |- (ev.east);
+\draw[arr] (ev) -- (reg);
+\draw[arr, dashed] (reg.west) -| node[lbl, pos=0.25, above] {owners in the region} (C.north);
+\draw[arr, dashed] (reg.east) -| (V.110);
+\draw[arr] (Cl.east) -- node[lbl, above] {shares} (s1.west);
+\draw[arr] (Vl.west) -- node[lbl, above] {shares} (s2.east);
+\draw[<->, thick] (s1.east) -- node[lbl, above] {openings} (s2.west);
+\draw[->] (deal) -- (s1.south); \draw[->] (deal) -- (s2.south);
+\draw[arr] (s1.south west) to[bend right=25] (ver.north west);
+\draw[arr] (s2.south east) to[bend left=25] (ver.north east);
+\draw[arr, dashed] (rank) -- node[lbl, above] {order} (ver);
+\draw[->, gray] (ver.west) -- node[lbl, above, text=gray] {findings} (R.east -| 2.2,-2.9) -- (2.2,-2.9) |- (C.south);
+\end{tikzpicture}}
+\caption{Architecture of \name. Each organisation holds its fragment of the policy hypergraph. A change event determines a region; only the owners of that region evaluate their own rules locally and send secret shares to two non-colluding servers, which combine them and return the findings to the owners they concern. A federated model ranks held changes by expected use.}\label{fig:arch}
+\end{figure}
+
+\subsection{Threat model}\label{sec:threat}
+% Plan: semi-honest owners and servers, non-colluding servers, dealer, what is protected and what is revealed.
+Owners and servers are \emph{honest but curious}: they follow the protocol and try to learn other owners' rules from what they see. Owners may collude with each other. The two servers do not collude with each other, and neither colludes with an owner; correlated randomness comes from a dealer, which may be replaced by a preprocessing protocol (Section~\ref{sec:cost}). The \emph{protected} information is the rule set of each owner. The \emph{revealed} information is fixed by a leakage function given in Section~\ref{sec:security}: the findings addressed to each owner, the descriptions of the tools that read a resource to the owner of that resource (which must see them to approve them), and the number of rules each owner holds on the vertices of a region. Malicious owners that submit malformed rules, denial of service, and the correctness of tool descriptions with respect to the tools' code are outside the model; drift between observed and declared behaviour is covered as an anomaly when observations exist.
+
+\subsection{Problem statement}\label{sec:problem}
+Let $\G_0$ be the joint state of all policies and tool descriptions and $\epsilon_1, \epsilon_2, \dots$ a sequence of change events, each issued by one owner.
+\begin{description}
+\item[P1, governance as an invariant.] Define anomalies of the composed policy that capture conflicting, superfluous, blocked, amplified, non-conforming and drifted authority, and an invariant stating that every anomaly present has been accepted by the owners it concerns.
+\item[P2, admission of change.] For each event, decide before it takes effect whether the successor state satisfies the invariant, at a cost that depends on the event and not on the size of the state, exactly (no false alarms and no misses).
+\item[P3, no disclosure.] Run the decision of P2 so that each owner learns only the findings that involve its own rules, tools or resources, and a stated leakage.
+\item[P4, priority.] Order the held changes by the expected use of the requests they affect, without pooling request logs.
+\end{description}

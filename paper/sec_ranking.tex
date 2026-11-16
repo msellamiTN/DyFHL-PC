@@ -1,0 +1,19 @@
+%=====================================================================
+\section{Ranking held changes by expected use}\label{sec:ranking}
+
+A busy federation holds many changes, and owners must decide which to examine first. An amplification on a resource nobody requests matters less than a blocked grant on a tool used every hour. We therefore order held changes by the expected number of requests their findings affect. This is the only learned component of \name; the admission verdict never depends on it.
+
+\paragraph{Expected impact} For a held event with findings $N$, let $\hat\lambda(u, r)$ estimate the probability that users of class $u$ request resource $r$ in the next period. The impact of the event is
+\begin{multline}
+\mathrm{Imp}(\epsilon) = \sum_{(u, t, r) \in N \cap (\Gap \cup \Amp)} \hat\lambda(u, r)\\
++ \sum_{\{e, e'\} \in N \cap (\Conf \cup \Red)} \ \sum_{u \in S,\ r \in \key(e) \cap \key(e')} \hat\lambda(u, r)\, [\,(u, r) \in M(e) \cap M(e')\,], \label{eq:impact}
+\end{multline}
+and usage findings are weighted by the requests of the classes allowed to call the tool. Held events are presented in decreasing order of $\mathrm{Imp}$.
+
+\paragraph{Hyperedge model} A request is the hyperedge formed by the attribute vertices of the user and the vertex of the resource. Each vertex $v$ has an embedding $z_v \in \mathbb{R}^{32}$ and each resource a bias $b_r$, and
+\begin{equation}
+\hat\lambda(u, r) = \sigma\Bigl(\bigl\langle \textstyle\sum_{a} z_{(a, u_a)},\ z_r \bigr\rangle + b_r\Bigr), \label{eq:scorer}
+\end{equation}
+trained on an organisation's own log against sampled non-requests with the logistic loss. An optional propagation step replaces each embedding by itself plus the mean of the embeddings of the vertices it co-occurs with in past requests, a single vertex--hyperedge--vertex pass in the sense of hypergraph neural networks~\cite{feng2019hgnn}.
+
+\paragraph{Federation} Organisations share the vertex vocabulary (\Cref{as:vocab}) but not their logs. They train \eqref{eq:scorer} by federated averaging~\cite{mcmahan2017fedavg} with one local epoch per round, and the server averages each vertex's embedding over the organisations that observed that vertex, weighted by the number of observations, so that a vertex absent from an organisation's log does not dilute the others. The benefit expected from federation is specific: an organisation learns about resources and tools that are new to it but known to partners, which is the situation created by a newly shared tool. Section~\ref{sec:rankeval} tests this claim and reports that it holds only in that case. The shared updates are not protected here; combining them with secure aggregation, and measuring what they leak, is future work.
